@@ -1,3 +1,4 @@
+import sys
 import numpy as np
 import cv2
 import time
@@ -28,7 +29,7 @@ options = vision.PoseLandmarkerOptions(
 landmarker = vision.PoseLandmarker.create_from_options(options)
 
 # -----------------------------
-# HELPER FUNCTIONS
+# DEFINE NEEDED FUNCTIONS
 # -----------------------------
 
 # Draws inputted pose onto an image
@@ -52,18 +53,31 @@ def drawPoseOnImage(rgb_image, detection_result):
             solutions.drawing_styles.get_default_pose_landmarks_style())
     return annotated_image
 
-# ---------------------------------
-# POSE ESTIMATOR FUNCTIONS
-# ---------------------------------
+def getLandmarks(results):
+    LEFT_SHOULDER = results.pose_landmarks[0][11]
+    RIGHT_SHOULDER = results.pose_landmarks[0][12]
+    LEFT_ELBOW = results.pose_landmarks[0][13]
+    RIGHT_ELBOW = results.pose_landmarks[0][14]
+    LEFT_WRIST = results.pose_landmarks[0][15]
+    RIGHT_WRIST = results.pose_landmarks[0][16]
 
-def poseEstimationLiveStream():
-    # When open CV is fed 0 as the video file, it uses the webcam as a live feed
-    poseEstimationOfVideo(0)
-    return
+    LEFT_HIP = results.pose_landmarks[0][23]
+    RIGHT_HIP = results.pose_landmarks[0][24]
+    LEFT_KNEE = results.pose_landmarks[0][25]
+    RIGHT_KNEE = results.pose_landmarks[0][26]
+    LEFT_ANKLE = results.pose_landmarks[0][27]
+    RIGHT_ANKLE = results.pose_landmarks[0][28]
 
-def poseEstimationOfVideo(video):
+    return [LEFT_SHOULDER, RIGHT_SHOULDER, LEFT_ELBOW, RIGHT_ELBOW, LEFT_WRIST, RIGHT_WRIST, LEFT_HIP, RIGHT_HIP, LEFT_KNEE, RIGHT_KNEE, LEFT_ANKLE, RIGHT_ANKLE]
+
+def getPoseDataFromVideo(video):
     # Use OpenCV’s VideoCapture to start capturing from the webcam.
     cap = cv2.VideoCapture(video)
+    frameCount = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+    # Stores the pose data at each frame. with the index being the frame number.
+    #videoPoseData = np.empty([frameCount, 12])
+    videoPoseData = [[]] * (frameCount + 1)
+
     while cap.isOpened():   
         # Read frame from webcam video stream
         frameExists, frame = cap.read() 
@@ -74,14 +88,63 @@ def poseEstimationOfVideo(video):
 
             # Send frame to Pose Landmarker for pose estimation.
             # Results accessible via the result_callback set in PoseLandmarkerOptions object called 'options'.
-            # TODO How should timestamp be worked out?
-            timestamp = int(time.time() * 1000)
-            result = landmarker.detect_for_video(image, timestamp)
+            timestamp = int(cap.get(cv2.CAP_PROP_POS_FRAMES))
+            results = landmarker.detect_for_video(image, timestamp)
+
             
-            # Draw the results on the image
-            resultImage = drawPoseOnImage(image.numpy_view(), result)
-            # Display the image
-            cv2.imshow('Output', resultImage)
+
+            videoPoseData[timestamp] = results
+        else:
+            break        
+    cap.release()
+    cv2.destroyAllWindows()
+    return videoPoseData
+
+
+def danceGame(referenceDance, camNum):
+    referencePoseData = getPoseDataFromVideo(referenceDance)
+
+    # Use OpenCV’s VideoCapture to start capturing from the webcam.
+    liveVideo = cv2.VideoCapture(camNum)
+    refVideo = cv2.VideoCapture(referenceDance)
+
+    # Check videos can be opened
+    if not (liveVideo.isOpened() and refVideo.isOpened()):
+        print("Error: reference video or live camera could not be accessed! :(")
+        return
+
+    # Create window for displaying results
+    v2.namedWindow("Output", cv2.WINDOW_NORMAL)
+    windowWidth = liveVideo.get(3) + refVideo.get(3)
+    windowHeight = max(liveVideo.get(4), refVideo.get(4))
+    cv2.resizeWindow("Ouput", int(windowWidth), int(windowHeight))
+
+    while refVideo.isOpened():   
+        # Read frame from webcam video stream
+        dancerFrameExists, dancerFrame = liveVideo.read()
+        # Read frame from reference video
+        refFrameExists, refFrame = refVideo.read()
+
+        if dancerFrameExists and refFrameExists:
+            # Convert the frame received from OpenCV to a MediaPipe’s Image object.
+            dancerImage = mp.Image(image_format=mp.ImageFormat.SRGB, data=dancerFrame)
+            refImage = mp.Image(image_format=mp.ImageFormat.SRGB, data=refFrame)
+
+            # Send frames to Pose Landmarker for pose estimation.
+            # TODO HACK Figure out why this has to be multiplied by 1000 for it work?
+            timestamp = int(refVideo.get(cv2.CAP_PROP_POS_FRAMES) * 1000)
+            dancerResult = landmarker.detect_for_video(dancerImage, timestamp)
+
+            # refTimestamp = int(refVideo.get(cv2.CAP_PROP_POS_FRAMES))
+            # refResult = landmarker.detect_for_video(refImage, timestamp)
+            
+            # Draw the results on the images
+            dancerResultImage = drawPoseOnImage(dancerImage.numpy_view(), dancerResult)
+            refResultImage = drawPoseOnImage(refImage.numpy_view(), referencePoseData[int(timestamp/1000)])
+
+            # Display the images
+            combinedImage = cv2.hconcat([dancerResultImage, refResultImage])
+            cv2.imshow("Output", combinedImage)
         else:
             break
         
@@ -89,10 +152,15 @@ def poseEstimationOfVideo(video):
         if cv2.waitKey(1) == ord('q'):
             break
         
-    cap.release()
+    liveVideo.release()
+    refVideo.release()
     cv2.destroyAllWindows()
     return
 
-# Uncomment whichever version you want to run
-# poseEstimationOfVideo('{video name here}')
-poseEstimationLiveStream()
+# -----
+# MAIN
+# -----
+danceFilename = sys.argv[1]
+danceGame(danceFilename, 0)
+
+
