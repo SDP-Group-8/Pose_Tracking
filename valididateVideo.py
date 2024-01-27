@@ -52,4 +52,4 @@ def validate_video(video_name: str) -> None:
     cv2.destroyAllWindows()
 
 
-validate_video("phone.mp4")
+validate_video("Add_Video_Name_Here.mp4")
