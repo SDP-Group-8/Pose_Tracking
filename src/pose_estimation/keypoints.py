@@ -26,7 +26,7 @@ class Keypoints:
         Turn object into native mediapipe results object
         :return: mediapipe results object
         '''
-        return self.results
+        return self.normalized_landmarks
 
     @classmethod
     def from_normalized_landmarks(cls, normalized_landmarks: [NormalizedLandmark]) -> 'Keypoints':

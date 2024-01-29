@@ -48,4 +48,4 @@ class MediaPipe:
         return self.__extract_keypoints(self.landmarker.detect(image))
     
     def __extract_keypoints(self, landmarks: LandmarksDetectionResult) -> Keypoints:
-        return Keypoints.from_detection_results(landmarks.pose_landmarks[0])
+        return Keypoints.from_normalized_landmarks(landmarks.pose_landmarks[0])

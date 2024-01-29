@@ -102,7 +102,7 @@ def estimate_video():
         if frame_exists:
             timestamp = int(cap.get_timestamp().total_seconds() * 1e3)
             res = media_pipe.process_frame(frame, timestamp = timestamp)
-            window.draw_and_show(frame, res.to_detection_results())
+            window.draw_and_show(frame, res.to_normalized_landmarks())
 
         if window.should_close():
             break
