@@ -114,7 +114,7 @@ def danceGame(referenceDance, camNum):
         return
 
     # Create window for displaying results
-    v2.namedWindow("Output", cv2.WINDOW_NORMAL)
+    cv2.namedWindow("Output", cv2.WINDOW_NORMAL)
     windowWidth = liveVideo.get(3) + refVideo.get(3)
     windowHeight = max(liveVideo.get(4), refVideo.get(4))
     cv2.resizeWindow("Ouput", int(windowWidth), int(windowHeight))
