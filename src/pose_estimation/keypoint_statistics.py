@@ -14,8 +14,10 @@ class KeypointStatistics:
 
     r_hip_l_hip_l_knee: float
     l_hip_l_knee_l_ankle: float
+
     r_hip_l_knee_l_knee: float
     l_hip_l_knee_l_ankle: float
+    
     l_hip_r_hip_r_knee: float
     r_hip_r_knee_r_ankle: float
 
