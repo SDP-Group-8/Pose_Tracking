@@ -13,13 +13,15 @@ from pose_estimation.mediapipe import MediaPipe
 from pose_estimation.capture_device import CaptureDevice
 
 class SingleWindow:
+    window_name = "pose_detections"
+
     def __init__(self, capture_device: CaptureDevice = None, image: mp.Image = None):
         '''
         Initialize window object with either image or video data source
         :param capture_device: video data source
         :param image: image data source, using custom mediapipe format
         '''
-        cv2.namedWindow("Output", cv2.WINDOW_NORMAL)
+        cv2.namedWindow(self.window_name, cv2.WINDOW_NORMAL)
         width = capture_device.get_width() if capture_device else image.width
         height = capture_device.get_height() if capture_device else image.height
         cv2.resizeWindow("Ouput", int(width), int(height))
@@ -31,7 +33,7 @@ class SingleWindow:
         :param detections: Pose detections on the image
         '''
         annotated_image = SingleWindow.draw_pose_on_image(image, detections)
-        cv2.imshow("Output", annotated_image)
+        cv2.imshow(self.window_name, annotated_image)
         cv2.waitKey(10)
 
     @staticmethod
@@ -58,7 +60,13 @@ class SingleWindow:
         return annotated_image
     
     def destroy(self):
-        cv2.destroyWindow("Output")
+        cv2.destroyWindow(self.window_name)
+
+    def should_close(self):
+        if cv2.waitKey(25) & 0xFF == ord('q') or cv2.getWindowProperty(self.window_name, cv2.WND_PROP_VISIBLE) < 1:
+            return True
+        return False
+
 
 def estimate_image():
     parser = argparse.ArgumentParser()
@@ -95,8 +103,9 @@ def estimate_video():
             timestamp = int(cap.get_timestamp().total_seconds() * 1e3)
             res = media_pipe.process_frame(frame, timestamp = timestamp)
             window.draw_and_show(frame, res)
-        if cv2.waitKey(1) == ord('q'):
+
+        if window.should_close():
             break
     
-    cap.close()
     window.destroy()
+    cap.close()
