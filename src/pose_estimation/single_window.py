@@ -56,7 +56,9 @@ class SingleWindow:
             solutions.drawing_styles.get_default_pose_landmarks_style())
         
         return annotated_image
-
+    
+    def destroy(self):
+        cv2.destroyWindow("Output")
 
 def estimate_image():
     parser = argparse.ArgumentParser()
@@ -93,3 +95,8 @@ def estimate_video():
             timestamp = int(cap.get_timestamp().total_seconds() * 1e3)
             res = media_pipe.process_frame(frame, timestamp = timestamp)
             window.draw_and_show(frame, res)
+        if cv2.waitKey(1) == ord('q'):
+            break
+    
+    cap.close()
+    window.destroy()
