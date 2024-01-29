@@ -3,7 +3,6 @@ import numpy as np
 from mediapipe.tasks import python
 import mediapipe as mp
 from mediapipe.tasks.python import vision
-from mediapipe.tasks.python.components.containers.landmark import NormalizedLandmark
 from mediapipe.tasks.python.components.containers.landmark_detection_result import LandmarksDetectionResult
 
 from pose_estimation.keypoints import Keypoints

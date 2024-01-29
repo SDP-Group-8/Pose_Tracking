@@ -2,7 +2,6 @@ from dataclasses import dataclass
 import itertools
 
 from mediapipe.tasks.python.components.containers.landmark import NormalizedLandmark
-from mediapipe.tasks.python.components.containers.landmark_detection_result import LandmarksDetectionResult
 
 @dataclass
 class Keypoints:
