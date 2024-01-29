@@ -235,6 +235,46 @@ def compareLandmarks(user_landmarks, ref_landmarks, landmark_weights=None):
 
     return score
 
+def adaptive_segmented_dtw(a, b, num_segments=10):
+    """
+    Performs DTW on adaptively sized segments of two sequences of possibly different lengths.
+
+    Args:
+    a, b (list): Sequences of data points.
+    num_segments (int): Number of segments to divide the sequences into.
+
+    Returns:
+    np.array: Array of DTW distances for each segment.
+    """
+    final_distances = []
+    len_a, len_b = len(a), len(b)
+    
+    # Calculate segment sizes for each sequence
+    segment_size_a = len_a // num_segments
+    segment_size_b = len_b // num_segments
+
+    for segment in range(num_segments):
+        start_a = segment * segment_size_a
+        end_a = start_a + segment_size_a
+        start_b = segment * segment_size_b
+        end_b = start_b + segment_size_b
+
+        # Handle last segment to include any remaining elements due to integer division
+        if segment == num_segments - 1:
+            end_a = len_a
+            end_b = len_b
+
+        # Extract segments
+        segment_a = a[start_a:end_a]
+        segment_b = b[start_b:end_b]
+
+        # Apply DTW to the segments
+        distance, _ = fastdtw(segment_a, segment_b, dist=euclidean)
+        final_distances.append(distance)
+
+    return np.array(final_distances)
+
+
 # ---------------------------------
 # POSE ESTIMATOR FUNCTIONS
 # ---------------------------------
@@ -243,7 +283,7 @@ def compareLandmarks(user_landmarks, ref_landmarks, landmark_weights=None):
 # Returns a list of pose landmarks for each frame
 def processVideo(video_path):
     cap = cv2.VideoCapture(video_path)
-    frameLandmarks = []
+    rawFramePose = []
 
     while cap.isOpened():
         ret, frame = cap.read()
@@ -258,12 +298,13 @@ def processVideo(video_path):
 
         if results.pose_landmarks:
             # Add the KEY landmarks to the list
-            frameLandmarks.append(getLandmarks(results))
-
+            rawFramePose.append(results)
+            
     cap.release()
-    return frameLandmarks
+    frameKeyLandmarks = [getLandmarks(results) for results in rawFramePose]
+    return frameKeyLandmarks, rawFramePose
 
-def processLiveVideo(camera_id, ref_landmarks, max_frames=None, display_live=False):
+def processLiveVideo(camera_id, ref_landmarks, max_frames=None, display_live=False, raw_ref_pose=None):
     """
     Processes a live video feed from a camera and compares it with a set of reference dance landmarks.
 
@@ -298,6 +339,15 @@ def processLiveVideo(camera_id, ref_landmarks, max_frames=None, display_live=Fal
 
         # Check if landmarks are detected in the frame
         if results.pose_landmarks:
+            # If display is enabled, show the live feed with the current frame score
+            if display_live:
+                mp_drawing.draw_landmarks(frame, raw_ref_pose[frame_counter].pose_landmarks, poseModule.POSE_CONNECTIONS, connection_drawing_spec=mp_drawing.DrawingSpec(color=(0, 255, 0)))
+                mp_drawing.draw_landmarks(frame, results.pose_landmarks, poseModule.POSE_CONNECTIONS, connection_drawing_spec=mp_drawing.DrawingSpec(color=(0, 0, 225)))
+                cv2.imshow("Live Dance Grading", frame)
+                # Check for 'ESC' key press to exit
+                if cv2.waitKey(1) & 0xFF == 27:
+                    break
+
             # Extract landmarks from the current frame
             user_landmarks = getLandmarks(results)
 
@@ -315,15 +365,6 @@ def processLiveVideo(camera_id, ref_landmarks, max_frames=None, display_live=Fal
             # Increment the frame counter
             frame_counter += 1
 
-            # If display is enabled, show the live feed with the current frame score
-            if display_live:
-                cv2.putText(frame, f"Frame Score: {frame_score:.2f}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
-                cv2.imshow("Live Dance Grading", frame)
-
-                # Check for 'ESC' key press to exit
-                if cv2.waitKey(1) & 0xFF == 27:
-                    break
-
     # Release the camera resource and close any open windows
     cap_live.release()
     cv2.destroyAllWindows()
@@ -335,6 +376,6 @@ def processLiveVideo(camera_id, ref_landmarks, max_frames=None, display_live=Fal
 
 
 video_path = "dances/renegade.mp4"
-ref_landmarks = processVideo(video_path)
+ref_landmarks, raw_ref_pose = processVideo(video_path)
 
-print(processLiveVideo(0, ref_landmarks, len(ref_landmarks), display_live=True))
+print(processLiveVideo(0, ref_landmarks, len(ref_landmarks), display_live=True, raw_ref_pose=raw_ref_pose))
