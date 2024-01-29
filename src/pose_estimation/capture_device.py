@@ -3,6 +3,8 @@ from datetime import datetime
 
 class CaptureDevice:
     def __init__(self, filepath: str, live: bool = False):
+        if filepath.isdigit():
+            filepath = int(filepath)
         self.device = cv2.VideoCapture(filepath)
         self.live = live
         self.init_time = datetime.now()
@@ -36,3 +38,6 @@ class CaptureDevice:
         Get height of the video stream in pixels
         '''
         return self.device.get(4)
+    
+    def close(self):
+        self.device.release()
