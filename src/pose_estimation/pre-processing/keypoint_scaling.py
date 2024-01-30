@@ -1,0 +1,3 @@
+
+class KeypointScaling():
+    pass
