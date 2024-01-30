@@ -36,7 +36,8 @@ class MediaPipe:
         :return: normalized pose detections
         '''
         image = mp.Image(image_format=mp.ImageFormat.SRGB, data=frame)
-        return self.__extract_normalized_landmarks(self.landmarker.detect_for_video(image, timestamp))
+
+        return self.__extract_keypoints(self.landmarker.detect_for_video(image, timestamp))
 
     def process_image(self, image: np.ndarray) -> Keypoints:
         '''
@@ -46,9 +47,9 @@ class MediaPipe:
         '''
         return self.__extract_keypoints(self.landmarker.detect(image))
     
-    def __extract_normalized_landmarks(self, landmarks: LandmarksDetectionResult) -> [NormalizedLandmark]:
+    def __extract_keypoints(self, landmarks: LandmarksDetectionResult) -> Keypoints:
         # If landmarks are not found (user out of frame) return None
         if len(landmarks.pose_landmarks) == 0:
             return None
         else:
-            return landmarks.pose_landmarks[0]
+            return Keypoints.from_normalized_landmarks(landmarks.pose_landmarks[0])
