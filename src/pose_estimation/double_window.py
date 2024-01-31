@@ -9,8 +9,6 @@ from mediapipe import solutions
 from pose_estimation.mediapipe import MediaPipe
 from pose_estimation.capture_device import CaptureDevice
 
-from pose_estimation.scoring.euclidean_score import EuclideanScore
-
 class DoubleWindow:
     window_name = "pose_detections"
 
@@ -38,6 +36,7 @@ class DoubleWindow:
         annotated_image = cv2.hconcat([annotated_image1, annotated_image2])
         
         # Specify the text, font, and other parameters
+        text = "Score: " + str(score)
         font = cv2.FONT_HERSHEY_SIMPLEX
         font_scale = 1
         font_thickness = 2
@@ -45,7 +44,7 @@ class DoubleWindow:
         position = (10, 50)  # Coordinates of the starting point of the text
 
         # Add text to the image
-        cv2.putText(annotated_image, score, position, font, font_scale, font_color, font_thickness)
+        cv2.putText(annotated_image, text, position, font, font_scale, font_color, font_thickness)
 
         cv2.imshow(self.window_name, annotated_image)
         cv2.waitKey(10)
@@ -112,9 +111,9 @@ def estimateLiveVideoComparison():
             refRes = refPoseData[frameCount]
             frameCount += 1
 
-            score = EuclideanScore.compute_score(refRes, liveRes)
+            score = 0
 
-            window.draw_and_show(refFrame, refRes, liveFrame, liveRes, score)
+            window.draw_and_show(refFrame, refRes.to_normalized_landmarks(), liveFrame, liveRes.to_normalized_landmarks(), score)
 
         if window.should_close():
             break
