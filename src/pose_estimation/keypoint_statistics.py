@@ -4,22 +4,21 @@ from keypoints import Keypoints
 from mediapipe.tasks.python.components.containers.landmark import NormalizedLandmark
 from dataclasses import dataclass
 
-
 @dataclass
 class KeypointStatistics:
     keypoints: Keypoints
 
-    left_armpit: float
-    left_elbow: float
+    r_shoulder_l_shoulder_l_elbow: float
+    l_shoulder_l_elbow_l_wrist: float
 
-    right_armpit: float
-    right_elbow: float
+    r_shoulder_l_shoulder_l_elbow: float
+    r_shoulder_r_elbow_r_wrist: float
 
-    left_hip: float
-    left_knee: float
+    r_hip_l_hip_l_knee: float
+    l_hip_l_knee_l_ankle: float
 
-    right_hip: float
-    right_knee: float
+    l_hip_r_hip_r_knee: float
+    r_hip_r_knee_r_ankle: float
 
     def to_list(self) -> [float]:
         """
@@ -27,14 +26,14 @@ class KeypointStatistics:
         :return: List of key angles.
         """
         return [
-            self.left_armpit,
-            self.left_elbow,
-            self.right_armpit,
-            self.right_elbow,
-            self.left_hip,
-            self.left_knee,
-            self.right_hip,
-            self.right_knee
+            self.r_shoulder_l_shoulder_l_elbow,
+            self.l_shoulder_l_elbow_l_wrist,
+            self.r_shoulder_l_shoulder_l_elbow,
+            self.r_shoulder_r_elbow_r_wrist,
+            self.r_hip_l_hip_l_knee,
+            self.l_hip_l_knee_l_ankle,
+            self.l_hip_r_hip_r_knee,
+            self.r_hip_r_knee_r_ankle
         ]
 
     @classmethod
@@ -45,64 +44,64 @@ class KeypointStatistics:
         :return: Itself, which holds the angle data.
         """
 
-        left_armpit = KeypointStatistics.calculate_angle(
+        r_shoulder_l_shoulder_l_elbow = KeypointStatistics.calculate_angle(
             keypoints.right_shoulder,
             keypoints.left_shoulder,
-            keypoints.left_elbow
+            keypoints.l_shoulder_l_elbow_l_wrist
         )
 
-        left_elbow = KeypointStatistics.calculate_angle(
+        l_shoulder_l_elbow_l_wrist = KeypointStatistics.calculate_angle(
             keypoints.left_shoulder,
-            keypoints.left_elbow,
+            keypoints.l_shoulder_l_elbow_l_wrist,
             keypoints.left_wrist
         )
 
-        right_armpit = KeypointStatistics.calculate_angle(
+        r_shoulder_l_shoulder_l_elbow = KeypointStatistics.calculate_angle(
             keypoints.left_shoulder,
             keypoints.right_shoulder,
-            keypoints.right_elbow
+            keypoints.r_shoulder_r_elbow_r_wrist
         )
 
-        right_elbow = KeypointStatistics.calculate_angle(
+        r_shoulder_r_elbow_r_wrist = KeypointStatistics.calculate_angle(
             keypoints.right_shoulder,
-            keypoints.right_elbow,
+            keypoints.r_shoulder_r_elbow_r_wrist,
             keypoints.right_wrist
         )
 
-        left_hip = KeypointStatistics.calculate_angle(
-            keypoints.right_hip,
-            keypoints.left_hip,
-            keypoints.left_knee
+        r_hip_l_hip_l_knee = KeypointStatistics.calculate_angle(
+            keypoints.l_hip_r_hip_r_knee,
+            keypoints.r_hip_l_hip_l_knee,
+            keypoints.l_hip_l_knee_l_ankle
         )
 
-        left_knee = KeypointStatistics.calculate_angle(
-            keypoints.left_hip,
-            keypoints.left_knee,
+        l_hip_l_knee_l_ankle = KeypointStatistics.calculate_angle(
+            keypoints.r_hip_l_hip_l_knee,
+            keypoints.l_hip_l_knee_l_ankle,
             keypoints.left_ankle
         )
 
-        right_hip = KeypointStatistics.calculate_angle(
-            keypoints.left_hip,
-            keypoints.right_hip,
-            keypoints.right_knee
+        l_hip_r_hip_r_knee = KeypointStatistics.calculate_angle(
+            keypoints.r_hip_l_hip_l_knee,
+            keypoints.l_hip_r_hip_r_knee,
+            keypoints.r_hip_r_knee_r_ankle
         )
 
-        right_knee = KeypointStatistics.calculate_angle(
-            keypoints.right_hip,
-            keypoints.right_knee,
+        r_hip_r_knee_r_ankle = KeypointStatistics.calculate_angle(
+            keypoints.l_hip_r_hip_r_knee,
+            keypoints.r_hip_r_knee_r_ankle,
             keypoints.right_ankle
         )
 
         return cls(
             keypoints,
-            left_armpit,
-            left_elbow,
-            right_armpit,
-            right_elbow,
-            left_hip,
-            left_knee,
-            right_hip,
-            right_knee
+            r_shoulder_l_shoulder_l_elbow,
+            l_shoulder_l_elbow_l_wrist,
+            r_shoulder_l_shoulder_l_elbow,
+            r_shoulder_r_elbow_r_wrist,
+            r_hip_l_hip_l_knee,
+            l_hip_l_knee_l_ankle,
+            l_hip_r_hip_r_knee,
+            r_hip_r_knee_r_ankle
         )
 
     @staticmethod
