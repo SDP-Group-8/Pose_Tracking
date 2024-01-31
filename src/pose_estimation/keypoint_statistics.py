@@ -137,3 +137,4 @@ class KeypointStatistics:
 
         # Calculate and return angle.
         return math.acos(dot_product / (magnitude_AB * magnitude_BC))
+    
