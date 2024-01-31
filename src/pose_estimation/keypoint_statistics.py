@@ -135,7 +135,5 @@ class KeypointStatistics:
         magnitude_AB = np.linalg.norm(ab)
         magnitude_BC = np.linalg.norm(bc)
 
-        # Calculate cosine of the angle
-        cos = dot_product / (magnitude_AB * magnitude_BC)
-
-        return math.acos(cos)
+        # Calculate and return angle.
+        return math.acos(dot_product / (magnitude_AB * magnitude_BC))
