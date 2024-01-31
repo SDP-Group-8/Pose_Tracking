@@ -49,6 +49,8 @@ class DoubleWindow:
         :param detections: Pose detections on the image
         :return: image with pose detections visualized
         '''
+        if detections is None:
+            return image
         normalized_landmarks = [landmark_pb2.NormalizedLandmark(x=landmark.x, y=landmark.y, z=landmark.z) for landmark in detections]
         annotated_image = np.copy(image)
 
@@ -101,10 +103,7 @@ def estimateLiveVideoComparison():
             refRes = refPoseData[frameCount]
             frameCount += 1
 
-            if liveRes is not None and refRes is not None:
-                window.draw_and_show(refFrame, refRes, liveFrame, liveRes)  
-            else:
-                print("No pose detected")
+            window.draw_and_show(refFrame, refRes, liveFrame, liveRes)
 
         if window.should_close():
             break
