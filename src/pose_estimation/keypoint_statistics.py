@@ -11,7 +11,7 @@ class KeypointStatistics:
     r_shoulder_l_shoulder_l_elbow: float
     l_shoulder_l_elbow_l_wrist: float
 
-    r_shoulder_l_shoulder_l_elbow: float
+    l_shoulder_r_shoulder_r_elbow: float
     r_shoulder_r_elbow_r_wrist: float
 
     r_hip_l_hip_l_knee: float
@@ -28,7 +28,7 @@ class KeypointStatistics:
         return [
             self.r_shoulder_l_shoulder_l_elbow,
             self.l_shoulder_l_elbow_l_wrist,
-            self.r_shoulder_l_shoulder_l_elbow,
+            self.l_shoulder_r_shoulder_r_elbow,
             self.r_shoulder_r_elbow_r_wrist,
             self.r_hip_l_hip_l_knee,
             self.l_hip_l_knee_l_ankle,
@@ -56,7 +56,7 @@ class KeypointStatistics:
             keypoints.left_wrist
         )
 
-        r_shoulder_l_shoulder_l_elbow = KeypointStatistics.calculate_angle(
+        l_shoulder_r_shoulder_r_elbow = KeypointStatistics.calculate_angle(
             keypoints.left_shoulder,
             keypoints.right_shoulder,
             keypoints.r_shoulder_r_elbow_r_wrist
@@ -96,7 +96,7 @@ class KeypointStatistics:
             keypoints,
             r_shoulder_l_shoulder_l_elbow,
             l_shoulder_l_elbow_l_wrist,
-            r_shoulder_l_shoulder_l_elbow,
+            l_shoulder_r_shoulder_r_elbow,
             r_shoulder_r_elbow_r_wrist,
             r_hip_l_hip_l_knee,
             l_hip_l_knee_l_ankle,
