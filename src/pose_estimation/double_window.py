@@ -1,17 +1,15 @@
 import argparse
-import math
-
 import numpy as np
 import cv2
 
-import mediapipe as mp
-from mediapipe.tasks.python import vision
 from mediapipe.tasks.python.components.containers.landmark import NormalizedLandmark
 from mediapipe.framework.formats import landmark_pb2
 from mediapipe import solutions
 
 from pose_estimation.mediapipe import MediaPipe
 from pose_estimation.capture_device import CaptureDevice
+
+from pose_estimation.scoring.euclidean_score import EuclideanScore
 
 class DoubleWindow:
     window_name = "pose_detections"
@@ -27,7 +25,7 @@ class DoubleWindow:
         height = max(capture_device.get_height(), reference_video.get_height())
         cv2.resizeWindow(self.window_name, int(width), int(height))
 
-    def draw_and_show(self, image1: np.ndarray, detections1: [NormalizedLandmark], image2: np.ndarray, detections2: [NormalizedLandmark]):
+    def draw_and_show(self, image1: np.ndarray, detections1: [NormalizedLandmark], image2: np.ndarray, detections2: [NormalizedLandmark], score: float):
         '''
         Draw pose detections on the inputted images and display them
         :param image1: image1
@@ -38,6 +36,17 @@ class DoubleWindow:
         annotated_image1 = DoubleWindow.draw_pose_on_image(image1, detections1)
         annotated_image2 = DoubleWindow.draw_pose_on_image(image2, detections2)
         annotated_image = cv2.hconcat([annotated_image1, annotated_image2])
+        
+        # Specify the text, font, and other parameters
+        font = cv2.FONT_HERSHEY_SIMPLEX
+        font_scale = 1
+        font_thickness = 2
+        font_color = (255, 255, 255)  # White color in BGR
+        position = (10, 50)  # Coordinates of the starting point of the text
+
+        # Add text to the image
+        cv2.putText(annotated_image, score, position, font, font_scale, font_color, font_thickness)
+
         cv2.imshow(self.window_name, annotated_image)
         cv2.waitKey(10)
 
@@ -103,7 +112,9 @@ def estimateLiveVideoComparison():
             refRes = refPoseData[frameCount]
             frameCount += 1
 
-            window.draw_and_show(refFrame, refRes, liveFrame, liveRes)
+            score = EuclideanScore.compute_score(refRes, liveRes)
+
+            window.draw_and_show(refFrame, refRes, liveFrame, liveRes, score)
 
         if window.should_close():
             break
