@@ -1,5 +1,5 @@
 import cv2
-from datetime import datetime
+import time
 
 class CaptureDevice:
     def __init__(self, filepath: str, live: bool = False):
@@ -7,13 +7,16 @@ class CaptureDevice:
             filepath = int(filepath)
         self.device = cv2.VideoCapture(filepath)
         self.live = live
-        self.init_time = datetime.now()
+        self.init_time = time.perf_counter_ns()
 
-    def get_timestamp(self) -> datetime:
+    def get_timestamp(self) -> float:
         '''
         Find the timestamp in milliseconds from the start of the video
         '''
-        return datetime.now() - self.init_time if self.live else self.device.get(cv2.CAP_PROP_POS_MSEC)
+        if self.live:
+            return ((time.perf_counter_ns() - self.init_time) * 1e-3)
+        else:
+            return self.device.get(cv2.CAP_PROP_POS_MSEC)
 
     def is_opened(self) -> bool:
         '''
