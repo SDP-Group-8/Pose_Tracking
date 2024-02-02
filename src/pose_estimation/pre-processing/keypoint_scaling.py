@@ -19,7 +19,6 @@ class KeypointScaling:
     def compute_point(x1, y1, x2, y2, theta, k):
         dx = x1 - x2
         dy = y1 - y2
-        theta = math.radians(theta)
         rdx = dx * math.cos(theta) - dy * math.sin(theta)
         rdy = dx * math.sin(theta) + dy * math.cos(theta)
         ab = math.sqrt(dx*dx + dy*dy)
