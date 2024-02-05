@@ -15,7 +15,7 @@ class DoubleWindow:
         '''
         Initialize window object with either image or video data source
         :param capture_device: video data source
-        :param image: image data source, using custom mediapipe format
+        :param reference_video: reference data source
         '''
         cv2.namedWindow(self.window_name, cv2.WINDOW_NORMAL)
         width = int(capture_device.get_width() + reference_video.get_width())
