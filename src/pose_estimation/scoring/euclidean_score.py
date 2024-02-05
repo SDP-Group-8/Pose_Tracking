@@ -15,8 +15,13 @@ class EuclideanScore(Score):
         :param weights: weights to apply to each distance
         :return: euclidean score
         """
-        get_x_y = lambda landmark: np.array([landmark.x, landmark.y])
 
+        def get_x_y(landmarks):
+            x_y_results = np.empty([len(landmarks), 2])
+            for i in range(len(landmarks)):
+                x_y_results[i] = [landmarks[i].x, landmarks[i].y]
+            return x_y_results
+        
         first_landmarks = np.array(first_keypoints.keypoints.normalized_landmarks)
         first_coords = get_x_y(first_landmarks)
 
