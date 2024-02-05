@@ -3,11 +3,10 @@ import numpy as np
 import cv2
 
 from mediapipe.tasks.python.components.containers.landmark import NormalizedLandmark
-from mediapipe.framework.formats import landmark_pb2
-from mediapipe import solutions
 
 from pose_estimation.mediapipe import MediaPipe
 from pose_estimation.capture_device import CaptureDevice
+from pose_estimation.single_window import SingleWindow
 
 class DoubleWindow:
     window_name = "pose_detections"
@@ -31,8 +30,8 @@ class DoubleWindow:
         :param image2: image2
         :param detections2: Pose detections of image2
         '''
-        annotated_image1 = DoubleWindow.draw_pose_on_image(image1, detections1)
-        annotated_image2 = DoubleWindow.draw_pose_on_image(image2, detections2)
+        annotated_image1 = SingleWindow.draw_pose_on_image(image1, detections1)
+        annotated_image2 = SingleWindow.draw_pose_on_image(image2, detections2)
         annotated_image = cv2.hconcat([annotated_image1, annotated_image2])
         
         # Specify the text, font, and other parameters
@@ -48,31 +47,6 @@ class DoubleWindow:
 
         cv2.imshow(self.window_name, annotated_image)
         cv2.waitKey(10)
-
-    @staticmethod
-    def draw_pose_on_image(image: np.ndarray, detections: [NormalizedLandmark]) -> np.ndarray:
-        '''
-        Draw pose detections on the inputted images
-        :param image: image
-        :param detections: Pose detections on the image
-        :return: image with pose detections visualized
-        '''
-        if detections is None:
-            return image
-        normalized_landmarks = [landmark_pb2.NormalizedLandmark(x=landmark.x, y=landmark.y, z=landmark.z) for landmark in detections]
-        annotated_image = np.copy(image)
-
-        # Draw the pose landmarks.
-        pose_landmarks = landmark_pb2.NormalizedLandmarkList()
-        pose_landmarks.landmark.extend(normalized_landmarks)
-        
-        solutions.drawing_utils.draw_landmarks(
-            annotated_image,
-            pose_landmarks,
-            solutions.pose.POSE_CONNECTIONS,
-            solutions.drawing_styles.get_default_pose_landmarks_style())
-
-        return annotated_image
     
     def destroy(self):
         cv2.destroyWindow(self.window_name)
@@ -83,7 +57,7 @@ class DoubleWindow:
         return False
 
 
-def estimateLiveVideoComparison():
+def estimate_live_video_comparison():
     parser = argparse.ArgumentParser()
 
     parser.add_argument("cam_num")
@@ -93,27 +67,33 @@ def estimateLiveVideoComparison():
     media_pipe = MediaPipe()
     media_pipe.initialize()
 
-    refPoseData = estimateVideo(args.reference_video)
+    ref_pose_data = estimate_video(args.reference_video)
 
     live = CaptureDevice(args.cam_num, True)
     ref = CaptureDevice(args.reference_video, False)
     window = DoubleWindow(live, ref)
     
-    frameCount = 0
+    frame_count = 0
     while ref.is_opened():
-        ref_frame_exists, refFrame = ref.read()
-        live_frame_exists, liveFrame = live.read()
+        ref_frame_exists, reference_frame = ref.read()
+        live_frame_exists, live_frame = live.read()
         
         if live_frame_exists and ref_frame_exists:
-            liveTimestamp = int(live.get_timestamp())
-            liveRes = media_pipe.process_frame(liveFrame, timestamp = liveTimestamp)
+            live_timestamp = int(live.get_timestamp())
+            live_detections = media_pipe.process_frame(live_frame, timestamp = live_timestamp)
 
-            refRes = refPoseData[frameCount]
-            frameCount += 1
+            reference_detections = ref_pose_data[frame_count]
+            frame_count += 1
 
             score = 0
 
-            window.draw_and_show(refFrame, refRes.to_normalized_landmarks(), liveFrame, liveRes.to_normalized_landmarks(), score)
+            window.draw_and_show(
+                reference_frame, 
+                reference_detections.to_normalized_landmarks(),
+                live_frame,
+                live_detections.to_normalized_landmarks(), 
+                score
+            )
 
         if window.should_close():
             break
@@ -122,7 +102,7 @@ def estimateLiveVideoComparison():
     ref.close()
     live.close()
 
-def estimateVideo(video):
+def estimate_video(video):
     mp = MediaPipe()
     mp.initialize()
 
