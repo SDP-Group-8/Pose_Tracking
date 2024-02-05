@@ -48,4 +48,8 @@ class MediaPipe:
         return self.__extract_keypoints(self.landmarker.detect(image))
     
     def __extract_keypoints(self, landmarks: LandmarksDetectionResult) -> Keypoints:
-        return Keypoints.from_normalized_landmarks(landmarks.pose_landmarks[0])
+        # If landmarks are not found (user out of frame) return None
+        if len(landmarks.pose_landmarks) == 0:
+            return None
+        else:
+            return Keypoints.from_normalized_landmarks(landmarks.pose_landmarks[0])
