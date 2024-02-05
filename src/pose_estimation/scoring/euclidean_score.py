@@ -1,5 +1,5 @@
-from score import Score
-from keypoint_statistics import KeypointStatistics
+from pose_estimation.scoring.score import Score
+from pose_estimation.keypoint_statistics import KeypointStatistics
 import numpy as np
 
 
@@ -18,7 +18,7 @@ class EuclideanScore(Score):
         first_landmarks = np.array(first_keypoints.keypoints.normalized_landmarks)
         second_landmarks = np.array(second_keypoints.keypoints.normalized_landmarks)
 
-        dist_difference = np.lingalg.norm(first_landmarks - second_landmarks)
+        dist_difference = np.linalg.norm(first_landmarks - second_landmarks)
         if weights is not None:
             dist_difference = dist_difference * weights
 
