@@ -28,6 +28,7 @@ class KeypointScaling:
 
     @staticmethod
     def scale_keypoints(ref_landmark: KeypointStatistics, live_landmark: KeypointStatistics):
+        live_landmark = deepcopy(live_landmark)
         scaling_factor = KeypointScaling.calculate_scaling_factor(ref_landmark, live_landmark)
 
         for (angle_name, live_endpoints), reference_endpoints in \
