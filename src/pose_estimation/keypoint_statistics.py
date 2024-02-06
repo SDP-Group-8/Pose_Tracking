@@ -1,13 +1,14 @@
 import math
 import numpy as np
 
-from keypoints import Keypoints
+from pose_estimation.keypoints import Keypoints
 from mediapipe.tasks.python.components.containers.landmark import NormalizedLandmark
 from dataclasses import dataclass
 
 @dataclass
 class KeypointStatistics:
     keypoints: Keypoints
+    property_map: dict[str]
 
     r_shoulder_l_shoulder_l_elbow: float
     l_shoulder_l_elbow_l_wrist: float
@@ -21,7 +22,20 @@ class KeypointStatistics:
     l_hip_r_hip_r_knee: float
     r_hip_r_knee_r_ankle: float
 
-    def to_list(self) -> 'np.ndarray':
+    @staticmethod
+    def create_map(keypoints: Keypoints):
+        return {
+            'r_shoulder_l_shoulder_l_elbow': [keypoints.right_shoulder, keypoints.left_shoulder, keypoints.left_elbow],
+            'l_shoulder_l_elbow_l_wrist': [keypoints.left_shoulder, keypoints.left_elbow, keypoints.left_wrist],
+            'l_shoulder_r_shoulder_r_elbow': [keypoints.left_shoulder, keypoints.right_shoulder, keypoints.right_elbow],
+            'r_shoulder_r_elbow_r_wrist': [keypoints.right_shoulder, keypoints.right_elbow, keypoints.right_wrist],
+            'r_hip_l_hip_l_knee': [keypoints.right_hip, keypoints.left_hip, keypoints.left_knee],
+            'l_hip_l_knee_l_ankle': [keypoints.left_hip, keypoints.left_knee, keypoints.left_ankle],
+            'l_hip_r_hip_r_knee': [keypoints.left_hip, keypoints.right_hip, keypoints.right_knee],
+            'r_hip_r_knee_r_ankle': [keypoints.right_hip, keypoints.right_knee,keypoints.right_ankle]
+        }
+
+    def to_numpy(self) -> 'np.ndarray':
         """
         Converts class into a list of angles.
         :return: List of key angles.
@@ -44,65 +58,12 @@ class KeypointStatistics:
         :param keypoints: Holds key body points for a given frame.
         :return: Itself, which holds the angle data.
         """
-
-        r_shoulder_l_shoulder_l_elbow = KeypointStatistics.calculate_angle(
-            keypoints.right_shoulder,
-            keypoints.left_shoulder,
-            keypoints.left_elbow
-        )
-
-        l_shoulder_l_elbow_l_wrist = KeypointStatistics.calculate_angle(
-            keypoints.left_shoulder,
-            keypoints.left_elbow,
-            keypoints.left_wrist
-        )
-
-        l_shoulder_r_shoulder_r_elbow = KeypointStatistics.calculate_angle(
-            keypoints.left_shoulder,
-            keypoints.right_shoulder,
-            keypoints.right_elbow
-        )
-
-        r_shoulder_r_elbow_r_wrist = KeypointStatistics.calculate_angle(
-            keypoints.right_shoulder,
-            keypoints.right_elbow,
-            keypoints.right_wrist
-        )
-
-        r_hip_l_hip_l_knee = KeypointStatistics.calculate_angle(
-            keypoints.right_hip,
-            keypoints.left_hip,
-            keypoints.left_knee
-        )
-
-        l_hip_l_knee_l_ankle = KeypointStatistics.calculate_angle(
-            keypoints.left_hip,
-            keypoints.left_knee,
-            keypoints.left_ankle
-        )
-
-        l_hip_r_hip_r_knee = KeypointStatistics.calculate_angle(
-            keypoints.left_hip,
-            keypoints.right_hip,
-            keypoints.right_knee
-        )
-
-        r_hip_r_knee_r_ankle = KeypointStatistics.calculate_angle(
-            keypoints.right_hip,
-            keypoints.right_knee,
-            keypoints.right_ankle
-        )
+        body_map = KeypointStatistics.create_map(keypoints)
 
         return cls(
             keypoints,
-            r_shoulder_l_shoulder_l_elbow,
-            l_shoulder_l_elbow_l_wrist,
-            l_shoulder_r_shoulder_r_elbow,
-            r_shoulder_r_elbow_r_wrist,
-            r_hip_l_hip_l_knee,
-            l_hip_l_knee_l_ankle,
-            l_hip_r_hip_r_knee,
-            r_hip_r_knee_r_ankle
+            body_map,
+            *(KeypointStatistics.calculate_angle(*parts) for parts in body_map.values())
         )
 
     @staticmethod
@@ -126,15 +87,12 @@ class KeypointStatistics:
 
         # Calculate vectors AB and BC
         ab = np.array([xb - xa, yb - ya])
-        bc = np.array([xc - xb, yc - yb])
+        bc = np.array([xb - xc, yb - yc])
 
         # Calculate dot product of AB and BC
         dot_product = np.dot(ab, bc)
-
-        # Calculate magnitudes of AB and BC
-        magnitude_AB = np.linalg.norm(ab)
-        magnitude_BC = np.linalg.norm(bc)
+        determinant = np.linalg.det(np.vstack([ab, bc]))
 
         # Calculate and return angle.
-        return math.acos(dot_product / (magnitude_AB * magnitude_BC))
+        return np.arctan2(determinant, dot_product)
     
