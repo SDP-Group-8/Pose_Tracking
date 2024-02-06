@@ -24,7 +24,7 @@ class SingleWindow:
         cv2.namedWindow(self.window_name, cv2.WINDOW_NORMAL)
         width = capture_device.get_width() if capture_device else image.width
         height = capture_device.get_height() if capture_device else image.height
-        cv2.resizeWindow("Ouput", int(width), int(height))
+        cv2.resizeWindow(self.window_name, int(width), int(height))
 
     def draw_and_show(self, image: np.ndarray, detections: [NormalizedLandmark]):
         '''
@@ -100,7 +100,7 @@ def estimate_video():
     while cap.is_opened():
         frame_exists, frame = cap.read()
         if frame_exists:
-            timestamp = int(cap.get_timestamp().total_seconds() * 1e3)
+            timestamp = int(cap.get_timestamp() * 1e3)
             res = media_pipe.process_frame(frame, timestamp = timestamp)
             window.draw_and_show(frame, res.to_normalized_landmarks())
 
