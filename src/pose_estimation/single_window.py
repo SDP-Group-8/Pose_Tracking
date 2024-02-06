@@ -33,7 +33,14 @@ class SingleWindow:
         :param detections: Pose detections on the image
         '''
         annotated_image = SingleWindow.draw_pose_on_image(image, detections)
-        cv2.imshow(self.window_name, annotated_image)
+        self.show_image(annotated_image)
+
+    def show_image(self, image: np.ndarray):
+        '''
+        Display input image
+        :param image: image
+        '''
+        cv2.imshow(self.window_name, image)
         cv2.waitKey(10)
 
     @staticmethod
@@ -102,7 +109,8 @@ def estimate_video():
         if frame_exists:
             timestamp = int(cap.get_timestamp() * 1e3)
             res = media_pipe.process_frame(frame, timestamp = timestamp)
-            window.draw_and_show(frame, res.to_normalized_landmarks())
+            window.draw_and_show(frame, res.to_normalized_landmarks()) \
+                if res else window.show_image(frame)
 
         if window.should_close():
             break
