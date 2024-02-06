@@ -18,6 +18,7 @@ wget https://storage.googleapis.com/mediapipe-models/pose_landmarker/pose_landma
 ```
 estimate-video <video_source> -live
 estimate-image <image_path>
+estimate-live-comparison <live-camera-num> <ref-video-src>
 ```
 
 # Useful Links
