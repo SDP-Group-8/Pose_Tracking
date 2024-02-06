@@ -33,8 +33,16 @@ class DoubleWindow:
         :param image2: image2
         :param detections2: Pose detections of image2
         '''
-        annotated_image1 = SingleWindow.draw_pose_on_image(image1, detections1)
-        annotated_image2 = SingleWindow.draw_pose_on_image(image2, detections2)
+        # Handling when no detections are found
+        if detections1:
+            annotated_image1 = SingleWindow.draw_pose_on_image(image1, detections1)
+        else:
+            annotated_image1 = image1
+        if detections2:
+            annotated_image2 = SingleWindow.draw_pose_on_image(image2, detections2)
+        else:
+            annotated_image2 = image2
+
         annotated_image = cv2.hconcat([annotated_image1, annotated_image2])
         
         # Specify the text, font, and other parameters
@@ -88,19 +96,28 @@ def estimate_live_video_comparison():
 
             reference_detections = ref_pose_data[frame_count]
 
-            reference_statistics = KeypointStatistics.from_keypoints(reference_detections)
-            live_statistics = KeypointStatistics.from_keypoints(live_detections)
-            scaled_keypoints = KeypointScaling.scale_keypoints(reference_statistics, live_statistics)
-
             frame_count += 1
 
-            score = 0
+            reference_statistics = KeypointStatistics.from_keypoints(reference_detections)
 
+            # Handling when no user is detected in the frame
+            if (live_detections):
+
+                live_statistics = KeypointStatistics.from_keypoints(live_detections)
+                scaled_keypoints = KeypointScaling.scale_keypoints(reference_statistics, live_statistics)
+
+                # TODO add scoring in here, once branch is merged
+                score = 0
+
+            else:
+                print("User not in frame!")
+
+            # Print original detections, don't want to print scaled ones
             window.draw_and_show(
                 reference_frame, 
-                reference_detections.to_normalized_landmarks(),
+                reference_detections.to_normalized_landmarks() if reference_detections else None,
                 live_frame,
-                scaled_keypoints.keypoints.to_normalized_landmarks(), 
+                live_detections.to_normalized_landmarks() if live_detections else None, 
                 score
             )
 
