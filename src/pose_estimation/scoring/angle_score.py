@@ -1,4 +1,4 @@
-from score import Score
+from pose_estimation.scoring.score import Score
 from pose_estimation.keypoint_statistics import KeypointStatistics
 import numpy as np
 
@@ -14,7 +14,7 @@ class AngleScore(Score):
         :param weights: weights to apply to each angle
         :return: angle score
         """
-        angle_diff = np.abs(first_keypoints.to_list() - second_keypoints.to_list())
+        angle_diff = np.abs(first_keypoints.to_numpy() - second_keypoints.to_numpy())
         if weights is not None:
             angle_diff = angle_diff * weights
 
