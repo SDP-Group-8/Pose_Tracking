@@ -5,8 +5,11 @@ import cv2
 from mediapipe.tasks.python.components.containers.landmark import NormalizedLandmark
 
 from pose_estimation.mediapipe import MediaPipe
+from pose_estimation.mediapipe_video import MediaPipeVideo
 from pose_estimation.capture_device import CaptureDevice
 from pose_estimation.single_window import SingleWindow
+from pose_estimation.pre_processing.keypoint_scaling import KeypointScaling
+from pose_estimation.keypoint_statistics import KeypointStatistics
 
 class DoubleWindow:
     window_name = "pose_detections"
@@ -67,7 +70,8 @@ def estimate_live_video_comparison():
     media_pipe = MediaPipe()
     media_pipe.initialize()
 
-    ref_pose_data = estimate_video(args.reference_video)
+    media_pipe_video = MediaPipeVideo(args.reference_video)
+    ref_pose_data = media_pipe_video.estimate_video()
 
     live = CaptureDevice(args.cam_num, True)
     ref = CaptureDevice(args.reference_video, False)
@@ -83,6 +87,11 @@ def estimate_live_video_comparison():
             live_detections = media_pipe.process_frame(live_frame, timestamp = live_timestamp)
 
             reference_detections = ref_pose_data[frame_count]
+
+            reference_statistics = KeypointStatistics.from_keypoints(reference_detections)
+            live_statistics = KeypointStatistics.from_keypoints(live_detections)
+            scaled_keypoints = KeypointScaling.scale_keypoints(reference_statistics, live_statistics)
+
             frame_count += 1
 
             score = 0
@@ -91,7 +100,7 @@ def estimate_live_video_comparison():
                 reference_frame, 
                 reference_detections.to_normalized_landmarks(),
                 live_frame,
-                live_detections.to_normalized_landmarks(), 
+                scaled_keypoints.keypoints.to_normalized_landmarks(), 
                 score
             )
 
@@ -101,20 +110,3 @@ def estimate_live_video_comparison():
     window.destroy()
     ref.close()
     live.close()
-
-def estimate_video(video):
-    mp = MediaPipe()
-    mp.initialize()
-
-    video = CaptureDevice(video, False)
-    results = []
-    while video.is_opened():
-        frame_exists, frame = video.read()
-        if frame_exists:
-            timestamp = int(video.get_timestamp())
-            res = mp.process_frame(frame, timestamp)
-            results.append(res)
-        else:
-            break
-    video.close()
-    return results

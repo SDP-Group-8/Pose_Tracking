@@ -1,3 +1,0 @@
-
-class KeypointScaling():
-    pass
