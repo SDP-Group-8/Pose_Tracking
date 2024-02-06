@@ -10,6 +10,7 @@ from pose_estimation.capture_device import CaptureDevice
 from pose_estimation.single_window import SingleWindow
 from pose_estimation.pre_processing.keypoint_scaling import KeypointScaling
 from pose_estimation.keypoint_statistics import KeypointStatistics
+from pose_estimation.scoring.angle_score import AngleScore
 
 class DoubleWindow:
     window_name = "pose_detections"
@@ -107,7 +108,7 @@ def estimate_live_video_comparison():
                 scaled_keypoints = KeypointScaling.scale_keypoints(reference_statistics, live_statistics)
 
                 # TODO add scoring in here, once branch is merged
-                score = 0
+                score = AngleScore.compute_score(reference_statistics, scaled_keypoints)
 
             else:
                 print("User not in frame!")
