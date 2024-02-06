@@ -16,8 +16,8 @@ class EuclideanScore(Score):
         :return: euclidean score
         """
         
-        first_landmarks = first_keypoints.to_numpy_positions()
-        second_landmarks = second_keypoints.to_numpy_positions()
+        first_landmarks = first_keypoints.keypoints.to_numpy_positions()
+        second_landmarks = second_keypoints.keypoints.to_numpy_positions()
 
         dist_difference = np.linalg.norm(first_landmarks - second_landmarks, axis=1)
         if weights is not None:
