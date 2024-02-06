@@ -10,6 +10,7 @@ from pose_estimation.capture_device import CaptureDevice
 from pose_estimation.single_window import SingleWindow
 from pose_estimation.pre_processing.keypoint_scaling import KeypointScaling
 from pose_estimation.keypoint_statistics import KeypointStatistics
+from pose_estimation.scoring.angle_score import AngleScore
 
 class DoubleWindow:
     window_name = "pose_detections"
@@ -94,7 +95,7 @@ def estimate_live_video_comparison():
 
             frame_count += 1
 
-            score = 0
+            score = AngleScore.compute_score(reference_statistics, scaled_keypoints)
 
             window.draw_and_show(
                 reference_frame, 

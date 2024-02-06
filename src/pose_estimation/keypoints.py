@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 import itertools
+import numpy as np
 
 from mediapipe.tasks.python.components.containers.landmark import NormalizedLandmark
 
@@ -20,6 +21,24 @@ class Keypoints:
     right_ankle: NormalizedLandmark
 
     normalized_landmarks: [NormalizedLandmark]
+
+    def to_numpy_positions(self) -> 'np.ndarray':
+        return np.asarray([(landmark.x, landmark.y) for landmark in [
+                self.left_shoulder,
+                self.right_shoulder,
+                self.left_elbow,
+                self.right_elbow,
+                self.left_wrist,
+                self.right_wrist,
+
+                self.left_hip,
+                self.right_hip,
+                self.left_knee,
+                self.right_knee,
+                self.left_ankle,
+                self.right_ankle
+            ]
+        ])
 
     def to_normalized_landmarks(self) -> [NormalizedLandmark]:
         '''
