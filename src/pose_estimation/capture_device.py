@@ -45,5 +45,8 @@ class CaptureDevice:
         '''
         return int(self.device.get(4))
     
+    def get_frame_count(self) -> int:
+        return int(self.device.get(cv2.CAP_PROP_FRAME_COUNT))
+
     def close(self):
         self.device.release()

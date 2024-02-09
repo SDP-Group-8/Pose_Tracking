@@ -99,7 +99,7 @@ def estimate_live_video_comparison():
             reference_detections = ref_pose_data[frame_count]
             frame_count += 1
 
-            if live_detections:
+            if live_detections and reference_detections:
                 reference_statistics = KeypointStatistics.from_keypoints(reference_detections)
                 live_statistics = KeypointStatistics.from_keypoints(live_detections)
                 scaled_keypoints = KeypointScaling.scale_keypoints(reference_statistics, live_statistics)
