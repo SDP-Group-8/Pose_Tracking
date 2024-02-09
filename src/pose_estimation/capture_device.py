@@ -1,13 +1,15 @@
 import cv2
 import time
+from typing import Tuple
 
 class CaptureDevice:
-    def __init__(self, filepath: str, live: bool = False):
+    def __init__(self, filepath: str, live: bool = False, dimensions: Tuple = None):
         if filepath.isdigit():
             filepath = int(filepath)
         self.device = cv2.VideoCapture(filepath)
         self.live = live
         self.init_time = time.perf_counter_ns()
+        self.dimensions = dimensions
 
     def get_timestamp(self) -> float:
         '''
@@ -28,19 +30,20 @@ class CaptureDevice:
         '''
         Read the next frame from the input device
         '''
-        return self.device.read()
+        exists, frame = self.device.read()
+        return exists, cv2.resize(frame, self.dimensions) if self.dimensions else frame
     
     def get_width(self) -> int:
         '''
         Get width of the video stream in pixels
         '''
-        return self.device.get(3)
+        return int(self.device.get(3))
     
     def get_height(self) -> int:
         '''
         Get height of the video stream in pixels
         '''
-        return self.device.get(4)
+        return int(self.device.get(4))
     
     def close(self):
         self.device.release()

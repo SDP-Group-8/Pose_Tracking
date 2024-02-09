@@ -11,6 +11,7 @@ from pose_estimation.single_window import SingleWindow
 from pose_estimation.pre_processing.keypoint_scaling import KeypointScaling
 from pose_estimation.keypoint_statistics import KeypointStatistics
 from pose_estimation.scoring.angle_score import AngleScore
+from pose_estimation.scoring.score_normalizer import ScoreNormalizer
 
 class DoubleWindow:
     window_name = "pose_detections"
@@ -36,22 +37,30 @@ class DoubleWindow:
         '''
         annotated_image1 = SingleWindow.draw_pose_on_image(image1, detections1)
         annotated_image2 = SingleWindow.draw_pose_on_image(image2, detections2)
-        annotated_image = cv2.hconcat([annotated_image1, annotated_image2])
         
+        self.show_image(annotated_image1, annotated_image2, score)
+        
+    def show_image(self, image1: np.ndarray, image2: np.ndarray, score: float):
+        '''
+        Display input images
+        :param image1: first image
+        :param image2: second image
+        :param score: similarity score to display
+        '''
+        composed_image = cv2.hconcat([image1, image2])
+
         # Specify the text, font, and other parameters
-        text = "Score: " + str(score)
+        text = f"Score: {score:.2f}%"
         font = cv2.FONT_HERSHEY_SIMPLEX
         font_scale = 1
         font_thickness = 2
         font_color = (255, 255, 255)  # White color in BGR
         position = (10, 50)  # Coordinates of the starting point of the text
 
-        # Add text to the image
-        cv2.putText(annotated_image, text, position, font, font_scale, font_color, font_thickness)
-
-        cv2.imshow(self.window_name, annotated_image)
+        cv2.putText(composed_image, text, position, font, font_scale, font_color, font_thickness)
+        cv2.imshow(self.window_name, composed_image)
         cv2.waitKey(10)
-    
+
     def destroy(self):
         cv2.destroyWindow(self.window_name)
 
@@ -75,7 +84,7 @@ def estimate_live_video_comparison():
     ref_pose_data = media_pipe_video.estimate_video()
 
     live = CaptureDevice(args.cam_num, True)
-    ref = CaptureDevice(args.reference_video, False)
+    ref = CaptureDevice(args.reference_video, False, (live.get_width(), live.get_height()))
     window = DoubleWindow(live, ref)
     
     frame_count = 0
@@ -88,22 +97,26 @@ def estimate_live_video_comparison():
             live_detections = media_pipe.process_frame(live_frame, timestamp = live_timestamp)
 
             reference_detections = ref_pose_data[frame_count]
-
-            reference_statistics = KeypointStatistics.from_keypoints(reference_detections)
-            live_statistics = KeypointStatistics.from_keypoints(live_detections)
-            scaled_keypoints = KeypointScaling.scale_keypoints(reference_statistics, live_statistics)
-
             frame_count += 1
 
-            score = AngleScore.compute_score(reference_statistics, scaled_keypoints)
+            if live_detections:
+                reference_statistics = KeypointStatistics.from_keypoints(reference_detections)
+                live_statistics = KeypointStatistics.from_keypoints(live_detections)
+                scaled_keypoints = KeypointScaling.scale_keypoints(reference_statistics, live_statistics)
 
-            window.draw_and_show(
-                reference_frame, 
-                reference_detections.to_normalized_landmarks(),
-                live_frame,
-                scaled_keypoints.keypoints.to_normalized_landmarks(), 
-                score
-            )
+                score = AngleScore.compute_score(reference_statistics, scaled_keypoints)
+                normalized_score = ScoreNormalizer.convert(score)
+
+                window.draw_and_show(
+                    reference_frame, 
+                    reference_detections.to_normalized_landmarks(),
+                    live_frame,
+                    scaled_keypoints.keypoints.to_normalized_landmarks(), 
+                    normalized_score * 100
+                )
+            
+            else:
+                window.show_image(reference_frame, live_frame, 0.0)
 
         if window.should_close():
             break
