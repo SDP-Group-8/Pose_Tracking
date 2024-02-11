@@ -2,6 +2,7 @@ import argparse
 
 import numpy as np
 import cv2
+import timeit
 
 import mediapipe as mp
 from mediapipe.tasks.python import vision
@@ -88,7 +89,29 @@ def estimate_image():
     media_pipe.initialize(mode=vision.RunningMode.IMAGE)
 
     res = media_pipe.process_image(image)
-    window.draw_and_show(image.numpy_view(), res.to_detection_results())
+
+    window.draw_and_show(image.numpy_view(), res.to_normalized_landmarks())
+    while not window.should_close():
+        pass
+
+
+def profile_image_inference():
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument("file")
+    args = parser.parse_args()
+
+    image = mp.Image.create_from_file(args.file)
+
+    media_pipe = MediaPipe()
+    media_pipe.initialize(mode=vision.RunningMode.IMAGE)
+
+    def run_inference():
+        media_pipe.process_image(image)
+
+    iteration_number = 100
+    time = timeit.timeit(run_inference, number=iteration_number)
+    print(f"Time running inference is: {time / iteration_number:.3f}")
 
 
 def estimate_video():

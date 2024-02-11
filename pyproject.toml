@@ -24,6 +24,7 @@ classifiers = [
 estimate-image = "pose_estimation.single_window:estimate_image"
 estimate-video = "pose_estimation.single_window:estimate_video"
 estimate-live-comparison = "pose_estimation.double_window:estimate_live_video_comparison"
+profile-image = "pose_estimation.single_window:profile_image_inference"
 
 [project.urls]
 Homepage = "https://github.com/SDP-Group-8/Pose_Tracking"
