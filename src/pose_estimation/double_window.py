@@ -11,7 +11,7 @@ from pose_estimation.single_window import SingleWindow
 from pose_estimation.pre_processing.keypoint_scaling import KeypointScaling
 from pose_estimation.keypoint_statistics import KeypointStatistics
 from pose_estimation.scoring.angle_score import AngleScore
-from pose_estimation.scoring.score_normalizer import ScoreNormalizer
+from pose_estimation.scoring.euclidean_score import EuclideanScore
 
 class DoubleWindow:
     window_name = "pose_detections"
@@ -104,15 +104,14 @@ def estimate_live_video_comparison():
                 live_statistics = KeypointStatistics.from_keypoints(live_detections)
                 scaled_keypoints = KeypointScaling.scale_keypoints(reference_statistics, live_statistics)
 
-                score = AngleScore.compute_score(reference_statistics, scaled_keypoints)
-                normalized_score = ScoreNormalizer.convert(score)
+                score = AngleScore.compute_score(reference_statistics, scaled_keypoints, isScaled=True)
 
                 window.draw_and_show(
                     reference_frame, 
                     reference_detections.to_normalized_landmarks(),
                     live_frame,
                     scaled_keypoints.keypoints.to_normalized_landmarks(), 
-                    normalized_score * 100
+                    score
                 )
             
             else:
