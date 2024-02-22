@@ -10,14 +10,13 @@ from pose_estimation.keypoints import Keypoints
 class MediaPipe:
     # different options of model to use "pose_landmarker_{lite/full/heavy}"
     # Download them from https://developers.google.com/mediapipe/solutions/vision/pose_landmarker/index#models
-    model_path = 'pose_landmarker_full.task'
-
-    def initialize(self, mode=vision.RunningMode.VIDEO):
+    def initialize(self, parameter_path: str, mode=vision.RunningMode.VIDEO):
         '''
         Initialize the mediapipe detection backend
+        :param parameter_path: path to the model description / parameter file
         :param mode: running mode for mediapipe (likely either image or video)
         '''
-        base_options = python.BaseOptions(model_asset_path=self.model_path)
+        base_options = python.BaseOptions(model_asset_path=parameter_path)
 
         # Set Pose Estimator Options
         options = vision.PoseLandmarkerOptions(
