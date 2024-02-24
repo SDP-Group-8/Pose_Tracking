@@ -6,6 +6,7 @@ from math import exp
 
 class AngleScore(Score):
     # overriding abstract method 
+    @staticmethod
     def compute_score(first_keypoints: KeypointStatistics, second_keypoints: KeypointStatistics, 
                       weights: np.ndarray = None, isScaled : bool = False) -> float:
         """
@@ -24,6 +25,7 @@ class AngleScore(Score):
         
         return np.mean(angle_diff)
     
+    @staticmethod
     def compute_each_score(first_keypoints: KeypointStatistics, second_keypoints: KeypointStatistics, 
                            weights: np.ndarray = None, isScaled : bool = False) -> list[float]:
         """
@@ -42,7 +44,7 @@ class AngleScore(Score):
             angle_diff = angle_diff * weights
         return angle_diff
 
-
+    @staticmethod
     def scale_score(angle_diff : float) -> float:
         """
         Returns the scaled score of the angle difference
