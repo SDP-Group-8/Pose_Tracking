@@ -78,7 +78,7 @@ def estimate_live_video_comparison():
     args = parser.parse_args()
 
     media_pipe = MediaPipe()
-    media_pipe.initialize()
+    media_pipe.initialize("pose_landmarker_full.task")
 
     media_pipe_video = MediaPipeVideo(args.reference_video)
     ref_pose_data = media_pipe_video.estimate_video()

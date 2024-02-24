@@ -122,7 +122,7 @@ def estimate_video():
     args = parser.parse_args()
 
     media_pipe = MediaPipe()
-    media_pipe.initialize()
+    media_pipe.initialize("pose_landmarker_full.task")
 
     cap = CaptureDevice(args.file, live=args.live)
     window = SingleWindow(cap)
