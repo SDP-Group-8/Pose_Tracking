@@ -20,7 +20,7 @@ class Keypoints:
     left_ankle: NormalizedLandmark
     right_ankle: NormalizedLandmark
 
-    normalized_landmarks: [NormalizedLandmark]
+    normalized_landmarks: list[NormalizedLandmark]
 
     def to_numpy_positions(self) -> 'np.ndarray':
         return np.asarray([(landmark.x, landmark.y) for landmark in [
@@ -40,7 +40,7 @@ class Keypoints:
             ]
         ])
 
-    def to_normalized_landmarks(self) -> [NormalizedLandmark]:
+    def to_normalized_landmarks(self) -> list[NormalizedLandmark]:
         '''
         Turn object into native mediapipe results object
         :return: mediapipe results object
@@ -48,7 +48,7 @@ class Keypoints:
         return self.normalized_landmarks
 
     @classmethod
-    def from_normalized_landmarks(cls, normalized_landmarks: [NormalizedLandmark]) -> 'Keypoints':
+    def from_normalized_landmarks(cls, normalized_landmarks: list[NormalizedLandmark]) -> 'Keypoints':
         '''
         Construct object from detection results
         :param results: native mediapipe results object
@@ -58,3 +58,24 @@ class Keypoints:
             *[normalized_landmarks[idx] for idx in itertools.chain(range(11, 17), range(23, 29))],
             normalized_landmarks
         )
+    def get_presences(self) -> np.ndarray[bool]:
+        """
+        Returns a boolean array of the presence of each keypoint.
+        """
+        npkeypoints = np.array([
+                self.left_shoulder,
+                self.right_shoulder,
+                self.left_elbow,
+                self.right_elbow,
+                self.left_wrist,
+                self.right_wrist,
+
+                self.left_hip,
+                self.right_hip,
+                self.left_knee,
+                self.right_knee,
+                self.left_ankle,
+                self.right_ankle
+            ])
+        presences = np.vectorize(lambda x: x.presence)(npkeypoints)
+        return presences > 0.8
