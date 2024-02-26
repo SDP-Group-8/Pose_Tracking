@@ -8,7 +8,7 @@ class AngleScore(Score):
     # overriding abstract method 
     @staticmethod
     def compute_score(first_keypoints: KeypointStatistics, second_keypoints: KeypointStatistics, 
-                      weights: np.ndarray = None, isScaled : bool = False) -> float:
+                      weights: np.ndarray[float] = None, isScaled : bool = False) -> float:
         """
         Returns the average angle difference between
         two keypoints statistics
@@ -21,13 +21,13 @@ class AngleScore(Score):
         if isScaled:
             angle_diff = [AngleScore.scale_score(score) for score in angle_diff]
         if weights is not None:
-            angle_diff = angle_diff * weights
+            angle_diff = np.array(angle_diff) * weights
         
         return np.mean(angle_diff)
     
     @staticmethod
     def compute_each_score(first_keypoints: KeypointStatistics, second_keypoints: KeypointStatistics, 
-                           weights: np.ndarray = None, isScaled : bool = False) -> list[float]:
+                           weights: np.ndarray[float] = None, isScaled : bool = False) -> list[float]:
         """
         Returns the angle difference between
         the two keypoints statistics for each angle
@@ -41,8 +41,8 @@ class AngleScore(Score):
         if isScaled:
             angle_diff = [AngleScore.scale_score(score) for score in angle_diff]
         if weights is not None:
-            angle_diff = angle_diff * weights
-        return angle_diff
+            angle_diff = np.array(angle_diff) * weights
+        return angle_diff.tolist()
 
     @staticmethod
     def scale_score(angle_diff : float) -> float:

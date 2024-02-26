@@ -6,12 +6,12 @@ from pose_estimation.keypoint_statistics import KeypointStatistics
 class Score(ABC):
     @abstractmethod
     def compute_score(first_keypoints: KeypointStatistics, second_keypoints: KeypointStatistics, 
-                      weights: np.ndarray = None, isScaled : bool = False) -> float:
+                      weights: np.ndarray[float] = None, isScaled : bool = False) -> float:
         pass
 
     @abstractmethod
     def compute_each_score(first_keypoints: KeypointStatistics, second_keypoints: KeypointStatistics, 
-                           weights: np.ndarray = None, isScaled : bool = False) -> list[float]:
+                           weights: np.ndarray[float] = None, isScaled : bool = False) -> list[float]:
         pass
 
     @abstractmethod

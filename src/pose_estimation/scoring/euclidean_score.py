@@ -9,7 +9,7 @@ class EuclideanScore(Score):
     # overriding abstract method 
     @staticmethod
     def compute_score(first_keypoints: KeypointStatistics, second_keypoints: KeypointStatistics, 
-                      weights: np.ndarray = None, isScaled : bool = False) -> float:
+                      weights: np.ndarray[float] = None, isScaled : bool = False) -> float:
         """
         Returns the average euclidean distance between 
         the landmarks of the two keypoints
@@ -26,13 +26,13 @@ class EuclideanScore(Score):
         if isScaled:
             dist_difference = [EuclideanScore.scale_score(score) for score in dist_difference]
         if weights is not None:
-            dist_difference = dist_difference * weights
+            dist_difference = np.array(dist_difference)  * weights
         
         return np.mean(dist_difference)
 
     @staticmethod
     def compute_each_score(first_keypoints: KeypointStatistics, second_keypoints: KeypointStatistics,
-                            weights: np.ndarray = None, isScaled : bool = False) -> list[float]:
+                            weights: np.ndarray[float] = None, isScaled : bool = False) -> list[float]:
           """
           Returns the euclidean distance between
           the landmarks of the two keypoints for each landmark
@@ -48,7 +48,7 @@ class EuclideanScore(Score):
           if isScaled:
                 dist_difference = [EuclideanScore.scale_score(score) for score in dist_difference]
           if weights is not None:
-                dist_difference = dist_difference * weights
+                dist_difference = np.array(dist_difference) * weights
           return dist_difference
     
     @staticmethod

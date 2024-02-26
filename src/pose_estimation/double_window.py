@@ -7,7 +7,7 @@ from mediapipe.tasks.python.components.containers.landmark import NormalizedLand
 from pose_estimation.mediapipe import MediaPipe
 from pose_estimation.mediapipe_video import MediaPipeVideo
 from pose_estimation.capture_device import CaptureDevice
-from pose_estimation.scoring.calc_weights import compute_weights
+from pose_estimation.scoring.calc_weights import compute_weights, compute_weights_comparison
 from pose_estimation.scoring.multi_frame_scoring import detect_movement, grade_gradients
 from pose_estimation.single_window import SingleWindow
 from pose_estimation.pre_processing.keypoint_scaling import KeypointScaling
@@ -142,7 +142,7 @@ def estimate_with_new_scoring():
 
     live_stats = []
 
-    live = CaptureDevice(args.cam_num, False)
+    live = CaptureDevice(args.cam_num, True)
     ref = CaptureDevice(args.reference_video, False, (live.get_width(), live.get_height()))
     window = DoubleWindow(live, ref)
     
@@ -164,11 +164,12 @@ def estimate_with_new_scoring():
                 live_stats.append(scaled_live_stats)
 
                 
-                # scoreGradient = grade_gradients(ref_stats, live_stats, frame_count, seg_length=5)
-                score = 0
-                if detect_movement(live_stats, frame_count, seg_length=5):
-                    score = AngleScore.compute_score(ref_stat, scaled_live_stats, isScaled=True)
-                
+                # scoreGradient = grade_gradients(ref_stats, live_stats, seg_length=5)
+                # score = 0
+                # if detect_movement(live_stats, frame_count, seg_length=5):
+                #     score = AngleScore.compute_score(ref_stat, scaled_live_stats, isScaled=True)
+                weights = compute_weights_comparison(ref_stats, live_stats, frame_count, seg_length=5)
+                score = AngleScore.compute_score(ref_stat, scaled_live_stats, weights, isScaled=True)
                 window.draw_and_show(
                     reference_frame, 
                     reference_detections.to_normalized_landmarks(),
