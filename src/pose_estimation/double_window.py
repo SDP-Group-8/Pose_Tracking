@@ -8,7 +8,7 @@ from pose_estimation.mediapipe import MediaPipe
 from pose_estimation.mediapipe_video import MediaPipeVideo
 from pose_estimation.capture_device import CaptureDevice
 from pose_estimation.scoring.calc_weights import compute_weights
-from pose_estimation.scoring.multi_frame_scoring import grade_gradients
+from pose_estimation.scoring.multi_frame_scoring import detect_movement, grade_gradients
 from pose_estimation.single_window import SingleWindow
 from pose_estimation.pre_processing.keypoint_scaling import KeypointScaling
 from pose_estimation.keypoint_statistics import KeypointStatistics
@@ -56,7 +56,7 @@ class DoubleWindow:
         font = cv2.FONT_HERSHEY_SIMPLEX
         font_scale = 1
         font_thickness = 2
-        font_color = (255, 255, 255)  # White color in BGR
+        font_color = (0, 0, 255)  # White color in BGR
         position = (10, 50)  # Coordinates of the starting point of the text
 
         cv2.putText(composed_image, text, position, font, font_scale, font_color, font_thickness)
@@ -139,10 +139,10 @@ def estimate_with_new_scoring():
     media_pipe_video = MediaPipeVideo(args.reference_video)
     ref_pose_data = media_pipe_video.estimate_video()
     ref_stats = [KeypointStatistics.from_keypoints(pose) for pose in ref_pose_data]
-    weights = compute_weights(ref_stats, AngleScore, 5)
+
     live_stats = []
 
-    live = CaptureDevice(args.cam_num, True)
+    live = CaptureDevice(args.cam_num, False)
     ref = CaptureDevice(args.reference_video, False, (live.get_width(), live.get_height()))
     window = DoubleWindow(live, ref)
     
@@ -156,17 +156,19 @@ def estimate_with_new_scoring():
             live_detections = media_pipe.process_frame(live_frame, timestamp = live_timestamp)
 
             reference_detections = ref_pose_data[frame_count]
-            frame_count += 1
-
+    
             if live_detections and reference_detections:
                 live_stat = KeypointStatistics.from_keypoints(live_detections)
                 ref_stat = ref_stats[frame_count]
                 scaled_live_stats = KeypointScaling.scale_keypoints(ref_stat, live_stat)
                 live_stats.append(scaled_live_stats)
 
-                score = AngleScore.compute_score(ref_stat, scaled_live_stats, isScaled=True, weights=weights[frame_count])
-                score = grade_gradients(ref_stats, live_stats, seg_length=5)
-
+                
+                # scoreGradient = grade_gradients(ref_stats, live_stats, frame_count, seg_length=5)
+                score = 0
+                if detect_movement(live_stats, frame_count, seg_length=5):
+                    score = AngleScore.compute_score(ref_stat, scaled_live_stats, isScaled=True)
+                
                 window.draw_and_show(
                     reference_frame, 
                     reference_detections.to_normalized_landmarks(),
@@ -174,9 +176,9 @@ def estimate_with_new_scoring():
                     scaled_live_stats.keypoints.to_normalized_landmarks(), 
                     score
                 )
+                frame_count += 1
             else:
                 window.show_image(reference_frame, live_frame, 0.0)
-
         if window.should_close():
             break
     

@@ -1,12 +1,14 @@
 
 
+from math import exp
 import numpy as np
 from pose_estimation.keypoint_statistics import KeypointStatistics
+from pose_estimation.mediapipe_video import MediaPipeVideo
 from pose_estimation.scoring.angle_score import AngleScore
 from pose_estimation.scoring.score import Score
 
 
-def grade_gradients(ref_stats: list[KeypointStatistics], live_stats: list[KeypointStatistics], score_func: Score = AngleScore, current_frame: int = 0, seg_length: int = 5) -> list[float]:
+def grade_gradients(ref_stats: list[KeypointStatistics], live_stats: list[KeypointStatistics], current_frame: int, score_func: Score = AngleScore, seg_length: int = 5) -> float:
     """
     takes two lists of KeypointStatistics objects, and
     compares the rate of the keypoints changing over the last few
@@ -19,23 +21,48 @@ def grade_gradients(ref_stats: list[KeypointStatistics], live_stats: list[Keypoi
     :param seg_length: number of frames to use to compare the gradients
     :return: scaled score difference of the gradient
     """
+    if current_frame == 0:
+        return 0
+
     # Initialize lists to store the differences
     ref_differences = []
     live_differences = []
-
+    
     # Determine the starting frame index, ensuring it's within bounds
     min_frame_idx = max(current_frame-seg_length, 1)
-
+    
     for i in range(min_frame_idx, current_frame+1):
         ref_differences.append(score_func.compute_each_score(ref_stats[i-1], ref_stats[i]))
         live_differences.append(score_func.compute_each_score(live_stats[i-1], live_stats[i]))
-
-    if current_frame < seg_length:
-        ref_differences.insert(0, np.zeros(ref_differences[0].shape))
-        live_differences.insert(0, np.zeros(live_differences[0].shape))
+    ref_differences = np.array(ref_differences)
+    live_differences = np.array(live_differences)
     
     ref_gradients = np.mean(ref_differences, axis=0)
-    live_gradients = np.mean(live_differences, axis=0) 
-    return [score_func.scale_score(score) for score in (live_gradients - ref_gradients)]
+    live_gradients = np.mean(live_differences, axis=0)
+    gradient_diff = np.abs(ref_gradients - live_gradients)
+
+    return np.mean(gradient_diff)
+
+def scale(score: float) -> float:
+    score = np.abs(score)
+    score = np.rad2deg(score)
+
+    L = 200 # max score * 2
+    k = -0.0732 # logistic growth rate
+
+    return L // (1 + exp(-k*score))
+
+def detect_movement(live_stats: list[KeypointStatistics], current_frame: int,  seg_length: int = 5) -> bool:
+    if current_frame == 0:
+        return True
+    differences = []
+    min_frame_idx = max(current_frame-seg_length, 1)
+    for i in range(min_frame_idx, current_frame+1):
+        differences.append(AngleScore.compute_each_score(live_stats[i-1], live_stats[i]))
+    avg_diff = np.mean(np.mean(differences, axis=0))
+    return avg_diff >= 0.17
+
     
+
+
 
