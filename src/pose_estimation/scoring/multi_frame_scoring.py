@@ -52,14 +52,19 @@ def scale(score: float) -> float:
 
     return L // (1 + exp(-k*score))
 
-def detect_movement(live_stats: list[KeypointStatistics], current_frame: int,  seg_length: int = 5) -> bool:
+def detect_movement(ref_stats: list[KeypointStatistics], live_stats: list[KeypointStatistics], current_frame: int,  seg_length: int = 5, threshold: int = 0.17) -> bool:
     if current_frame == 0:
         return True
-    differences = []
+    live_differences = []
+    ref_differences = []
+
     min_frame_idx = max(current_frame-seg_length, 1)
     for i in range(min_frame_idx, current_frame+1):
-        differences.append(AngleScore.compute_each_score(live_stats[i-1], live_stats[i]))
-    avg_diff = np.mean(np.mean(differences, axis=0))
-    return avg_diff >= 0.17
+        live_differences.append(AngleScore.compute_each_score(live_stats[i-1], live_stats[i]))
+        ref_differences.append(AngleScore.compute_each_score(ref_stats[i-1], ref_stats[i]))
+
+    live_avg_diff = np.mean(np.mean(live_differences, axis=0))
+    ref_avg_diff = np.mean(np.mean(ref_differences, axis=0))
+    return live_avg_diff >= threshold or ref_avg_diff < threshold
 
     

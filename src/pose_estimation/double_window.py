@@ -7,6 +7,7 @@ from mediapipe.tasks.python.components.containers.landmark import NormalizedLand
 from pose_estimation.mediapipe import MediaPipe
 from pose_estimation.mediapipe_video import MediaPipeVideo
 from pose_estimation.capture_device import CaptureDevice
+from pose_estimation.scoring.multi_frame_scoring import detect_movement
 from pose_estimation.single_window import SingleWindow
 from pose_estimation.pre_processing.keypoint_scaling import KeypointScaling
 from pose_estimation.keypoint_statistics import KeypointStatistics
@@ -72,8 +73,8 @@ class DoubleWindow:
 def estimate_live_video_comparison():
     parser = argparse.ArgumentParser()
 
-    parser.add_argument("cam_num")
     parser.add_argument("reference_video")
+    parser.add_argument("cam_num")
     args = parser.parse_args()
 
     media_pipe = MediaPipe()
@@ -83,7 +84,7 @@ def estimate_live_video_comparison():
     ref_pose_data = media_pipe_video.estimate_video()
     ref_stats = [KeypointStatistics.from_keypoints(frame) for frame in ref_pose_data if frame is not None]
 
-    live = CaptureDevice(args.cam_num, True)
+    live = CaptureDevice(args.cam_num, False)
     ref = CaptureDevice(args.reference_video, False)
     window = DoubleWindow(live, ref)
     
@@ -96,8 +97,8 @@ def estimate_live_video_comparison():
         if live_frame_exists and ref_frame_exists:
             live_timestamp = int(live.get_timestamp())
             live_detections = media_pipe.process_frame(live_frame, timestamp = live_timestamp)
-
-            frame_count += 1
+            reference_detections = ref_pose_data[frame_count]
+            
 
             reference_statistics = ref_stats[frame_count]
 
@@ -106,10 +107,11 @@ def estimate_live_video_comparison():
 
                 live_statistics = KeypointStatistics.from_keypoints(live_detections)
                 scaled_keypoints = KeypointScaling.scale_keypoints(reference_statistics, live_statistics)
-
+                live_stats.append(live_statistics)
                 # TODO add scoring in here, once branch is merged
-
-                score = AngleScore.compute_score(reference_statistics, scaled_keypoints, isScaled=True)
+                score = 0
+                if detect_movement(ref_stats, live_stats, frame_count, seg_length=10):
+                    score = AngleScore.compute_score(reference_statistics, scaled_keypoints, isScaled=True)
 
             else:
                 print("User not in frame!")
@@ -122,6 +124,7 @@ def estimate_live_video_comparison():
                 live_detections.to_normalized_landmarks() if live_detections else None, 
                 score
             )
+            frame_count += 1
 
         if window.should_close():
             break
