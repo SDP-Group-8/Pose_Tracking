@@ -81,11 +81,13 @@ def estimate_live_video_comparison():
 
     media_pipe_video = MediaPipeVideo(args.reference_video)
     ref_pose_data = media_pipe_video.estimate_video()
+    ref_stats = [KeypointStatistics.from_keypoints(frame) for frame in ref_pose_data if frame is not None]
 
     live = CaptureDevice(args.cam_num, True)
     ref = CaptureDevice(args.reference_video, False)
     window = DoubleWindow(live, ref)
     
+    live_stats = []
     frame_count = 0
     while ref.is_opened():
         ref_frame_exists, reference_frame = ref.read()
@@ -95,11 +97,9 @@ def estimate_live_video_comparison():
             live_timestamp = int(live.get_timestamp())
             live_detections = media_pipe.process_frame(live_frame, timestamp = live_timestamp)
 
-            reference_detections = ref_pose_data[frame_count]
-
             frame_count += 1
 
-            reference_statistics = KeypointStatistics.from_keypoints(reference_detections)
+            reference_statistics = ref_stats[frame_count]
 
             # Handling when no user is detected in the frame
             if (live_detections):
@@ -108,7 +108,8 @@ def estimate_live_video_comparison():
                 scaled_keypoints = KeypointScaling.scale_keypoints(reference_statistics, live_statistics)
 
                 # TODO add scoring in here, once branch is merged
-                score = AngleScore.compute_score(reference_statistics, scaled_keypoints)
+
+                score = AngleScore.compute_score(reference_statistics, scaled_keypoints, isScaled=True)
 
             else:
                 print("User not in frame!")
