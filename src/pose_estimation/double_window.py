@@ -166,7 +166,7 @@ def estimate_with_new_scoring():
                 
                 # scoreGradient = grade_gradients(ref_stats, live_stats, frame_count, seg_length=5)
                 score = 0
-                if detect_movement(live_stats, frame_count, seg_length=5):
+                if detect_movement(ref_stats, live_stats, frame_count, seg_length=5):
                     score = AngleScore.compute_score(ref_stat, scaled_live_stats, isScaled=True)
                 
                 window.draw_and_show(
