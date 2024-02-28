@@ -46,7 +46,7 @@ class DoubleWindow:
         else:
             annotated_image2 = image2
 
-        # annotated_image2 = cv2.flip(annotated_image2, 1)
+        annotated_image2 = cv2.flip(annotated_image2, 1)
         annotated_image = cv2.hconcat([annotated_image1, annotated_image2])
         
         # Specify the text, font, and other parameters
@@ -85,7 +85,7 @@ def estimate_live_video_comparison():
     ref_pose_data = media_pipe_video.estimate_video()
     ref_stats = [KeypointStatistics.from_keypoints(frame) for frame in ref_pose_data if frame is not None]
 
-    live = CaptureDevice(args.cam_num, False)
+    live = CaptureDevice(args.cam_num, True)
     ref = CaptureDevice(args.reference_video, False)
     window = DoubleWindow(live, ref)
     
