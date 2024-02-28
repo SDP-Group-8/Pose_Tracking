@@ -7,6 +7,7 @@ from mediapipe.tasks.python.components.containers.landmark import NormalizedLand
 from pose_estimation.mediapipe import MediaPipe
 from pose_estimation.mediapipe_video import MediaPipeVideo
 from pose_estimation.capture_device import CaptureDevice
+from pose_estimation.scoring.delayed_scoring import DelayAngleScore
 from pose_estimation.scoring.multi_frame_scoring import detect_movement
 from pose_estimation.single_window import SingleWindow
 from pose_estimation.pre_processing.keypoint_scaling import KeypointScaling
@@ -45,19 +46,19 @@ class DoubleWindow:
         else:
             annotated_image2 = image2
 
+        # annotated_image2 = cv2.flip(annotated_image2, 1)
         annotated_image = cv2.hconcat([annotated_image1, annotated_image2])
         
         # Specify the text, font, and other parameters
         text = "Score: " + str(score)
         font = cv2.FONT_HERSHEY_SIMPLEX
-        font_scale = 1
+        font_scale = 2
         font_thickness = 2
-        font_color = (255, 255, 255)  # White color in BGR
+        font_color = (0, 0, 255)  # White color in BGR
         position = (10, 50)  # Coordinates of the starting point of the text
 
         # Add text to the image
         cv2.putText(annotated_image, text, position, font, font_scale, font_color, font_thickness)
-
         cv2.imshow(self.window_name, annotated_image)
         cv2.waitKey(10)
     
@@ -88,6 +89,8 @@ def estimate_live_video_comparison():
     ref = CaptureDevice(args.reference_video, False)
     window = DoubleWindow(live, ref)
     
+    scorer = DelayAngleScore(100)
+
     live_stats = []
     frame_count = 0
     while ref.is_opened():
@@ -101,28 +104,32 @@ def estimate_live_video_comparison():
             
 
             reference_statistics = ref_stats[frame_count]
-
+            score = 0
             # Handling when no user is detected in the frame
             if (live_detections):
 
                 live_statistics = KeypointStatistics.from_keypoints(live_detections)
                 scaled_keypoints = KeypointScaling.scale_keypoints(reference_statistics, live_statistics)
-                live_stats.append(live_statistics)
+                live_stats.append(scaled_keypoints)
                 # TODO add scoring in here, once branch is merged
-                score = 0
-                if detect_movement(ref_stats, live_stats, frame_count, seg_length=10):
-                    score = AngleScore.compute_score(reference_statistics, scaled_keypoints, isScaled=True)
 
+                if detect_movement(ref_stats, live_stats, frame_count, seg_length=5, threshold=0.10) or True:
+                    # score = AngleScore.compute_score(reference_statistics, scaled_keypoints, isScaled=True)
+                    score = scorer.compute_score(reference_statistics, scaled_keypoints, isScaled=True, seg_length=10)
+                else:
+                    scorer.count = 0
+                    scorer.score_total = 0
             else:
                 print("User not in frame!")
-
+                if len(live_stats) > 0:
+                    live_stats.append(live_stats[-1])
             # Print original detections, don't want to print scaled ones
             window.draw_and_show(
                 reference_frame, 
                 reference_detections.to_normalized_landmarks() if reference_detections else None,
                 live_frame,
                 live_detections.to_normalized_landmarks() if live_detections else None, 
-                score
+                round(score, 2)
             )
             frame_count += 1
 

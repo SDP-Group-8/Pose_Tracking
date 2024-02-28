@@ -14,7 +14,7 @@ class CaptureDevice:
         Find the timestamp in milliseconds from the start of the video
         '''
         if self.live:
-            return ((time.perf_counter_ns() - self.init_time) * 1e-3)
+            return ((time.perf_counter_ns() - self.init_time) * 1e-6)
         else:
             return self.device.get(cv2.CAP_PROP_POS_MSEC)
 

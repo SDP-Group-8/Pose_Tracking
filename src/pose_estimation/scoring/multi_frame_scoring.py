@@ -57,14 +57,22 @@ def detect_movement(ref_stats: list[KeypointStatistics], live_stats: list[Keypoi
         return True
     live_differences = []
     ref_differences = []
+    live_presences = []
+    ref_presences = []
 
     min_frame_idx = max(current_frame-seg_length, 1)
     for i in range(min_frame_idx, current_frame+1):
         live_differences.append(AngleScore.compute_each_score(live_stats[i-1], live_stats[i]))
+        live_presences.append(live_stats[i].angle_presences() or ref_stats[i-1].angle_presences())
+        
+    for i in range(max(current_frame-30, 1), current_frame+1):
         ref_differences.append(AngleScore.compute_each_score(ref_stats[i-1], ref_stats[i]))
+        ref_presences.append(ref_stats[i].angle_presences() or live_stats[i-1].angle_presences())
 
-    live_avg_diff = np.mean(np.mean(live_differences, axis=0))
-    ref_avg_diff = np.mean(np.mean(ref_differences, axis=0))
+    live_avg_diff = np.ma.array(data=live_differences, mask=live_presences).mean(axis=0).mean(axis=0)
+    ref_avg_diff = np.ma.array(data=ref_differences, mask=ref_presences).mean(axis=0).mean(axis=0)
+    # live_avg_diff = np.mean(np.mean(live_differences, axis=0))
+    # ref_avg_diff = np.mean(np.mean(ref_differences, axis=0))
     return live_avg_diff >= threshold or ref_avg_diff < threshold
 
     

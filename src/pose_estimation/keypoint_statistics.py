@@ -96,3 +96,26 @@ class KeypointStatistics:
         # Calculate and return angle.
         return np.arctan2(determinant, dot_product)
     
+    def angle_dict_presences(self) -> dict[str, bool]:
+        """
+        Checks if all angles are present.
+        :return: Dictionary of angles and if they are present.
+        """
+        angleMap = KeypointStatistics.create_map(self.keypoints)
+        presences = {}
+        for name, keypoints in angleMap.items():
+            isPresent = all(keypoint.presence > 0.8 for keypoint in keypoints)
+            presences[name] = isPresent
+        return presences
+    
+    def angle_presences(self) -> np.ndarray[bool]:
+        """
+        Checks if all angles are present.
+        :return: list of boolean if angles are present.
+        """
+        angleMap = KeypointStatistics.create_map(self.keypoints)
+        presences = []
+        for keypoints in angleMap.values():
+            isPresent = any(keypoint.presence < 0.3 for keypoint in keypoints)
+            presences.append(isPresent)
+        return presences

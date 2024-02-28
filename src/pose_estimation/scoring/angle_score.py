@@ -22,8 +22,10 @@ class AngleScore(Score):
             angle_diff = [AngleScore.scale_score(score) for score in angle_diff]
         if weights is not None:
             angle_diff = angle_diff * weights
-        
-        return np.mean(angle_diff)
+
+        mask = first_keypoints.angle_presences() or second_keypoints.angle_presences()
+
+        return np.ma.array(angle_diff, mask = mask).mean()
     
     @staticmethod
     def compute_each_score(first_keypoints: KeypointStatistics, second_keypoints: KeypointStatistics, 
@@ -53,9 +55,8 @@ class AngleScore(Score):
         """
         angle_diff = np.abs(angle_diff)
         angle_diff = np.rad2deg(angle_diff)
-
         L = 200 # max score * 2
-        k = -0.0732 # logistic growth rate
-
+        k = -0.03 # logistic growth rate
+        
         return L // (1 + exp(-k*angle_diff))
 

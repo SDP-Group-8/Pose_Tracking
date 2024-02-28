@@ -2,6 +2,7 @@ from dataclasses import dataclass
 import itertools
 
 from mediapipe.tasks.python.components.containers.landmark import NormalizedLandmark
+import numpy as np
 
 @dataclass
 class Keypoints:
@@ -39,3 +40,24 @@ class Keypoints:
             *[normalized_landmarks[idx] for idx in itertools.chain(range(11, 17), range(23, 29))],
             normalized_landmarks
         )
+    def get_presences(self) -> np.ndarray[bool]:
+        """
+        Returns a boolean array of the presence of each keypoint.
+        """
+        npkeypoints = np.array([
+                self.left_shoulder,
+                self.right_shoulder,
+                self.left_elbow,
+                self.right_elbow,
+                self.left_wrist,
+                self.right_wrist,
+
+                self.left_hip,
+                self.right_hip,
+                self.left_knee,
+                self.right_knee,
+                self.left_ankle,
+                self.right_ankle
+            ])
+        presences = np.vectorize(lambda x: x.presence)(npkeypoints)
+        return presences
