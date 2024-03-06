@@ -1,5 +1,6 @@
 from pose_estimation.mediapipe import MediaPipe
 from pose_estimation.capture_device import CaptureDevice
+from pose_estimation.timestamped_keypoints import TimestampedKeypoints
 
 class MediaPipeVideo:
     def __init__(self, video, parameter_path: str):
@@ -18,9 +19,8 @@ class MediaPipeVideo:
             if frame_exists and ((not frame_number > 0.0) or timestamp > 0.0):
                 res = self.mp.process_frame(frame, int(timestamp))
                 if res:
-                    results[frame_number] = res
+                    results[frame_number] = TimestampedKeypoints(int(timestamp), res)
             else:
                 break
         self.video.close()
         return results
-    
