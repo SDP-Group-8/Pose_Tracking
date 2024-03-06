@@ -5,6 +5,7 @@ from typing import Iterable
 
 from pose_estimation.timestamped_keypoints_decoder import TimestampedKeypointsDecoder
 from pose_estimation.keypoints import Keypoints
+from pose_estimation.keypoint_encoder import KeypointEncoder
 
 @dataclass
 class TimestampedKeypoints:
@@ -16,7 +17,7 @@ class TimestampedKeypoints:
         return json.dumps({
             TimestampedKeypointsDecoder.timestamp_field_name: keypoints.timestamp,
             TimestampedKeypointsDecoder.keypoints_field_name: keypoints.keypoints.to_dict()
-        })
+        }, cls=KeypointEncoder)
     
     @staticmethod
     def batch_serialize(iter: Iterable['Keypoints | None']):
