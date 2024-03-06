@@ -3,7 +3,7 @@ import itertools
 import numpy as np
 from typing import Iterable
 import json
-
+from __future__ import annotations
 from mediapipe.tasks.python.components.containers.landmark import NormalizedLandmark
 
 from pose_estimation.keypoint_encoder import KeypointEncoder
