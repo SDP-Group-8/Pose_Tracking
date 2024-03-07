@@ -1,6 +1,6 @@
 import math
 import numpy as np
-
+from __future__ import annotations
 from pose_estimation.keypoints import Keypoints
 from mediapipe.tasks.python.components.containers.landmark import NormalizedLandmark
 from dataclasses import dataclass
