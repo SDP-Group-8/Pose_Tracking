@@ -1,5 +1,5 @@
 from __future__ import annotations
-from copy import deepcopy
+
 from pose_estimation.keypoint_statistics import KeypointStatistics
 from scipy.spatial.transform import Rotation
 import numpy as np

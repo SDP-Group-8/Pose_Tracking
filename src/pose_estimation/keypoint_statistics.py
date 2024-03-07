@@ -1,4 +1,3 @@
-import math
 import numpy as np
 from __future__ import annotations
 from pose_estimation.keypoints import Keypoints
