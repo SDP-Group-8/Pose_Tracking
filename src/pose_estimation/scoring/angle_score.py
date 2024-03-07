@@ -1,4 +1,5 @@
 from __future__ import annotations
+
 from pose_estimation.scoring.score import Score
 from pose_estimation.keypoint_statistics import KeypointStatistics
 import numpy as np

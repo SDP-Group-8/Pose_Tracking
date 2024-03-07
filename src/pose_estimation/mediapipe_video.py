@@ -1,6 +1,8 @@
+from __future__ import annotations
+
 from pose_estimation.mediapipe import MediaPipe
 from pose_estimation.capture_device import CaptureDevice
-from __future__ import annotations
+
 class MediaPipeVideo:
     def __init__(self, video, parameter_path: str):
         self.mp = MediaPipe()

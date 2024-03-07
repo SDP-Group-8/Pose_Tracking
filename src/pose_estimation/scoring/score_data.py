@@ -1,4 +1,5 @@
 from __future__ import annotations
+
 class ScoreData():
     # Explicitly for Angle Score
     r_shoulder_l_shoulder_l_elbow = []
