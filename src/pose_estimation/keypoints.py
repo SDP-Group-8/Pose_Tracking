@@ -1,9 +1,10 @@
+from __future__ import annotations
+
 from dataclasses import dataclass
 import itertools
 import numpy as np
 from typing import Iterable
 import json
-
 from mediapipe.tasks.python.components.containers.landmark import NormalizedLandmark
 
 from pose_estimation.keypoint_encoder import KeypointEncoder
@@ -96,3 +97,9 @@ class Keypoints:
             *[normalized_landmarks[idx] for idx in itertools.chain(range(11, 17), range(23, 29))],
             normalized_landmarks
         )
+
+    def get_presences(self, threshold: float) -> np.ndarray[bool]:
+        """
+        Returns a boolean array of the presence of each keypoint.
+        """
+        return {k: v.presence > threshold for k, v in self.to_dict().items()}

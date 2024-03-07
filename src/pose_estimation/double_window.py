@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import argparse
 import numpy as np
 import cv2
@@ -77,10 +79,12 @@ def estimate_live_video_comparison():
     parser.add_argument("reference_video")
     args = parser.parse_args()
 
-    media_pipe = MediaPipe()
-    media_pipe.initialize("pose_landmarker_full.task")
+    parameter_path = "pose_landmarker_full.task"
 
-    media_pipe_video = MediaPipeVideo(args.reference_video)
+    media_pipe = MediaPipe()
+    media_pipe.initialize(parameter_path)
+
+    media_pipe_video = MediaPipeVideo(args.reference_video, parameter_path)
     ref_pose_data = media_pipe_video.estimate_video()
 
     live = CaptureDevice(args.cam_num, True)

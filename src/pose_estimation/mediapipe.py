@@ -1,5 +1,6 @@
-import numpy as np
+from __future__ import annotations
 
+import numpy as np
 from mediapipe.tasks import python
 import mediapipe as mp
 from mediapipe.tasks.python import vision

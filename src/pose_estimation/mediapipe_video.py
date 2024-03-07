@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from pose_estimation.mediapipe import MediaPipe
 from pose_estimation.capture_device import CaptureDevice
 from pose_estimation.timestamped_keypoints import TimestampedKeypoints
