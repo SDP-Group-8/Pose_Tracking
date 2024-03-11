@@ -96,9 +96,14 @@ class Keypoints:
             *[normalized_landmarks[idx] for idx in itertools.chain(range(11, 17), range(23, 29))],
             normalized_landmarks
         )
-    def get_presences(self) -> np.ndarray[bool]:
+    
+    def get_presences(self, threshold : float = 0.3) -> np.ndarray[bool]:
         """
         Returns a boolean array of the presence of each keypoint.
+        True if the keypoint is present, False otherwise.
+        
+        :param threshold: The threshold for the presence of a keypoint
+        :return: A boolean array of the presence of each keypoint
         """
         npkeypoints = np.array([
                 self.left_shoulder,
@@ -116,4 +121,4 @@ class Keypoints:
                 self.right_ankle
             ])
         presences = np.vectorize(lambda x: x.presence)(npkeypoints)
-        return presences > 0.8
+        return presences < 0.3
