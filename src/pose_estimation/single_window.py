@@ -9,9 +9,11 @@ from mediapipe.tasks.python import vision
 from mediapipe.tasks.python.components.containers.landmark import NormalizedLandmark
 from mediapipe.framework.formats import landmark_pb2
 from mediapipe import solutions
+from pose_estimation.keypoint_statistics import KeypointStatistics
 
 from pose_estimation.mediapipe import MediaPipe
 from pose_estimation.capture_device import CaptureDevice
+from pose_estimation.pre_processing.orientation import Orientation
 
 class SingleWindow:
     window_name = "pose_detections"
@@ -132,6 +134,8 @@ def estimate_video():
         if frame_exists:
             timestamp = int(cap.get_timestamp() * 1e3)
             res = media_pipe.process_frame(frame, timestamp = timestamp)
+            stats = KeypointStatistics.from_keypoints(res)
+
             window.draw_and_show(frame, res.to_normalized_landmarks()) \
                 if res else window.show_image(frame)
 
