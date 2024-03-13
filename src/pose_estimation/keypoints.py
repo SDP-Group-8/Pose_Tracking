@@ -96,29 +96,38 @@ class Keypoints:
             *[normalized_landmarks[idx] for idx in itertools.chain(range(11, 17), range(23, 29))],
             normalized_landmarks
         )
-    
-    def get_presences(self, threshold : float = 0.3) -> np.ndarray[bool]:
+        
+    def get_presences(self, threshold : float = 0.3) -> dict[str, bool]:
         """
-        Returns a boolean array of the presence of each keypoint.
+        Returns a dictionary of the presence of each keypoint.
         True if the keypoint is present, False otherwise.
         
         :param threshold: The threshold for the presence of a keypoint
-        :return: A boolean array of the presence of each keypoint
+        :return: A dictionary of the presence of each keypoint
         """
-        npkeypoints = np.array([
-                self.left_shoulder,
-                self.right_shoulder,
-                self.left_elbow,
-                self.right_elbow,
-                self.left_wrist,
-                self.right_wrist,
+        dict = self.to_dict()
+        for key in dict:
+            dict[key] = dict[key].presence < threshold
+    
+    def is_in_frame(self, match_ref = False, ref_keypoints: 'Keypoints' = None) -> int:
+        top, bottom = False
+        presences = self.get_presences()
 
-                self.left_hip,
-                self.right_hip,
-                self.left_knee,
-                self.right_knee,
-                self.left_ankle,
-                self.right_ankle
-            ])
-        presences = np.vectorize(lambda x: x.presence)(npkeypoints)
-        return presences < 0.3
+        if match_ref:
+            present_ref_points = {name: kp for name, kp in ref_keypoints.to_dict().items() if ref_keypoints.get_presences()[name]}
+            
+            lowest_ref_point, _ = min((name, kp.y) for name, kp in present_ref_points.items())
+            highest_ref_point, _ = max((name, kp.y) for name, kp in present_ref_points.items())
+
+            top = presences[highest_ref_point]
+            bottom = presences[lowest_ref_point]
+        else:
+            top = presences["left_shoulder"] and presences["right_shoulder"]
+            bottom = presences["left_ankle"] and presences["right_ankle"]
+        
+        return int(top), int(bottom)
+            
+
+
+
+
