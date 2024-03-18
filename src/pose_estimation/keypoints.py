@@ -115,9 +115,9 @@ class Keypoints:
 
         if match_ref:
             present_ref_points = {name: kp for name, kp in ref_keypoints.to_dict().items() if ref_keypoints.get_presences()[name]}
-            
-            lowest_ref_point, _ = min((name, kp.y) for name, kp in present_ref_points.items())
-            highest_ref_point, _ = max((name, kp.y) for name, kp in present_ref_points.items())
+
+            lowest_ref_point, _ = max((name, kp.y) for name, kp in present_ref_points.items())
+            highest_ref_point, _ = min((name, kp.y) for name, kp in present_ref_points.items())
 
             top = presences[highest_ref_point]
             bottom = presences[lowest_ref_point]
