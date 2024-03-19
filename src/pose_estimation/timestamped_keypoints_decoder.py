@@ -10,6 +10,8 @@ class TimestampedKeypointsDecoder(json.JSONDecoder):
         json.JSONDecoder.__init__(self, object_hook=self.object_hook, *args, **kwargs)
 
     def object_hook(self, repr: str):
-        decoder = KeypointDecoder()
-        keypoints = json.loads(repr[TimestampedKeypointsDecoder.keypoints_field_name])
-        return repr[TimestampedKeypointsDecoder.timestamp_field_name], decoder.object_hook(keypoints)
+        if TimestampedKeypointsDecoder.timestamp_field_name in repr:
+            decoder = KeypointDecoder()
+            keypoints = repr[TimestampedKeypointsDecoder.keypoints_field_name]
+            return repr[TimestampedKeypointsDecoder.timestamp_field_name], decoder.object_hook(keypoints)
+        return repr
