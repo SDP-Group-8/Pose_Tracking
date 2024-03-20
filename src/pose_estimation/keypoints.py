@@ -107,11 +107,12 @@ class Keypoints:
         """
         dict = self.to_dict()
         for key in dict:
-            dict[key] = dict[key].presence < threshold
+            dict[key] = dict[key].presence > threshold
+        return dict
     
-    def is_in_frame(self, match_ref = False, ref_keypoints: 'Keypoints' = None) -> int:
-        top, bottom = False
-        presences = self.get_presences()
+    def is_in_frame(self, threshold: int = 0.3, match_ref = False, ref_keypoints: 'Keypoints' = None) -> tuple[int, int]:
+        top = bottom = False
+        presences = self.get_presences(threshold)
 
         if match_ref:
             present_ref_points = {name: kp for name, kp in ref_keypoints.to_dict().items() if ref_keypoints.get_presences()[name]}
@@ -121,6 +122,7 @@ class Keypoints:
 
             top = presences[highest_ref_point]
             bottom = presences[lowest_ref_point]
+
         else:
             top = presences["left_shoulder"] and presences["right_shoulder"]
             bottom = presences["left_ankle"] and presences["right_ankle"]
