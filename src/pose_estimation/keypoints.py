@@ -97,40 +97,9 @@ class Keypoints:
             *[normalized_landmarks[idx] for idx in itertools.chain(range(11, 17), range(23, 29))],
             normalized_landmarks
         )
-        
-    def get_presences(self, threshold : float = 0.3) -> dict[str, bool]:
+
+    def get_presences(self, threshold: float) -> np.ndarray[bool]:
         """
-        Returns a dictionary of the presence of each keypoint.
-        True if the keypoint is present, False otherwise.
-        
-        :param threshold: The threshold for the presence of a keypoint
-        :return: A dictionary of the presence of each keypoint
+        Returns a boolean array of the presence of each keypoint.
         """
-        dict = self.to_dict()
-        for key in dict:
-            dict[key] = dict[key].presence > threshold
-        return dict
-    
-    def is_in_frame(self, threshold: int = 0.3, match_ref = False, ref_keypoints: 'Keypoints' = None) -> tuple[int, int]:
-        top = bottom = False
-        presences = self.get_presences(threshold)
-
-        if match_ref:
-            present_ref_points = {name: kp for name, kp in ref_keypoints.to_dict().items() if ref_keypoints.get_presences()[name]}
-
-            lowest_ref_point, _ = max((name, kp.y) for name, kp in present_ref_points.items())
-            highest_ref_point, _ = min((name, kp.y) for name, kp in present_ref_points.items())
-
-            top = presences[highest_ref_point]
-            bottom = presences[lowest_ref_point]
-
-        else:
-            top = presences["left_shoulder"] and presences["right_shoulder"]
-            bottom = presences["left_ankle"] and presences["right_ankle"]
-        
-        return int(top), int(bottom)
-            
-
-
-
-
+        return {k: v.presence > threshold for k, v in self.to_dict().items()}
