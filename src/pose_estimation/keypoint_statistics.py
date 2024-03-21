@@ -101,11 +101,8 @@ class KeypointStatistics:
         :param threshold: Threshold for presence.
         :return: Dictionary of angles and if they are present.
         """
-        angleMap = KeypointStatistics.create_map(self.keypoints)
+        angle_map = KeypointStatistics.create_map(self.keypoints)
         presences = {}
-        for name, keypoints in angleMap.items():
-            isPresent = all(keypoint.presence > threshold for keypoint in keypoints)
-            presences[name] = isPresent
+        for name, keypoints in angle_map.items():
+            presences[name] = all(keypoint.presence > threshold for keypoint in keypoints)
         return presences
-
-             
