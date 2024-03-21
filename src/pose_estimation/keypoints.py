@@ -21,7 +21,7 @@ class Keypoints:
     left_ankle: NormalizedLandmark
     right_ankle: NormalizedLandmark
 
-    normalized_landmarks: [NormalizedLandmark]
+    normalized_landmarks: list[NormalizedLandmark]
 
     ordered_fields = [
         "left_shoulder",
@@ -84,7 +84,7 @@ class Keypoints:
             "right_ankle": self.right_ankle
         }
 
-    def to_normalized_landmarks(self) -> [NormalizedLandmark]:
+    def to_normalized_landmarks(self) -> list[NormalizedLandmark]:
         '''
         Turn object into native mediapipe results object
         :return: mediapipe results object
@@ -92,7 +92,7 @@ class Keypoints:
         return self.normalized_landmarks
 
     @classmethod
-    def from_normalized_landmarks(cls, normalized_landmarks: [NormalizedLandmark]) -> 'Keypoints':
+    def from_normalized_landmarks(cls, normalized_landmarks: list[NormalizedLandmark]) -> 'Keypoints':
         '''
         Construct object from detection results
         :param results: native mediapipe results object
