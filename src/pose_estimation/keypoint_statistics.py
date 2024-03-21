@@ -95,3 +95,14 @@ class KeypointStatistics:
         # Calculate and return angle.
         return np.arctan2(determinant, dot_product)
     
+    def get_angle_presences(self, threshold: float = 0.3) -> dict[str, bool]:
+        """
+        Checks if all angles are present.
+        :param threshold: Threshold for presence.
+        :return: Dictionary of angles and if they are present.
+        """
+        angle_map = KeypointStatistics.create_map(self.keypoints)
+        presences = {}
+        for name, keypoints in angle_map.items():
+            presences[name] = all(keypoint.presence > threshold for keypoint in keypoints)
+        return presences

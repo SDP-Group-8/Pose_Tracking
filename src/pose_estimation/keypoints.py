@@ -26,7 +26,7 @@ class Keypoints:
     left_ankle: NormalizedLandmark
     right_ankle: NormalizedLandmark
 
-    normalized_landmarks: [NormalizedLandmark]
+    normalized_landmarks: list[NormalizedLandmark]
 
     def to_numpy_positions(self) -> 'np.ndarray':
         return np.asarray([(landmark.x, landmark.y) for landmark in [
@@ -79,7 +79,7 @@ class Keypoints:
     def batch_deserialize(repr: str) -> Iterable['Keypoints | None']:
         return (None if keypoint_repr == "None" else Keypoints.deserialize(keypoint_repr) for keypoint_repr in repr.split("\n"))
 
-    def to_normalized_landmarks(self) -> [NormalizedLandmark]:
+    def to_normalized_landmarks(self) -> list[NormalizedLandmark]:
         '''
         Turn object into native mediapipe results object
         :return: mediapipe results object
@@ -87,7 +87,7 @@ class Keypoints:
         return self.normalized_landmarks
 
     @classmethod
-    def from_normalized_landmarks(cls, normalized_landmarks: [NormalizedLandmark]) -> 'Keypoints':
+    def from_normalized_landmarks(cls, normalized_landmarks: list[NormalizedLandmark]) -> 'Keypoints':
         '''
         Construct object from detection results
         :param results: native mediapipe results object
