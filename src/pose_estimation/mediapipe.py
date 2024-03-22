@@ -47,6 +47,16 @@ class MediaPipe:
         '''
         return self.__extract_keypoints(self.landmarker.detect(image))
     
+    def process_image_global(self, image: np.ndarray) -> Keypoints:
+        return self.__extract_global_keypoints(self.landmarker.detect(image))
+    
+    def __extract_global_keypoints(self, landmarks: LandmarksDetectionResult) -> Keypoints | None:
+        # If landmarks are not found (user out of frame) return None
+        if len(landmarks.pose_landmarks) == 0:
+            return None
+        else:
+            return Keypoints.from_world_landmarks(landmarks.pose_landmarks[1])
+    
     def __extract_keypoints(self, landmarks: LandmarksDetectionResult) -> Keypoints | None:
         # If landmarks are not found (user out of frame) return None
         if len(landmarks.pose_landmarks) == 0:

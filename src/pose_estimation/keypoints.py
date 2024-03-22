@@ -6,6 +6,7 @@ import numpy as np
 from typing import Iterable
 import json
 from mediapipe.tasks.python.components.containers.landmark import NormalizedLandmark
+from mediapipe.tasks.python.components.containers.landmark import Landmark
 
 from pose_estimation.keypoint_encoder import KeypointEncoder
 from pose_estimation.keypoint_decoder import KeypointDecoder
@@ -96,6 +97,12 @@ class Keypoints:
         return cls(
             *[normalized_landmarks[idx] for idx in itertools.chain(range(11, 17), range(23, 29))],
             normalized_landmarks
+        )
+    
+    def from_world_landmarks(cls, world_landmarks: [Landmark]) -> 'Keypoints':
+        return cls(
+            *[world_landmarks[idx] for idx in itertools.chain(range(11, 17), range(23, 29))],
+            world_landmarks
         )
 
     def get_presences(self, threshold: float) -> np.ndarray[bool]:
