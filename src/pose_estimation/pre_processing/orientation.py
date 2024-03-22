@@ -12,6 +12,7 @@ class Orientation:
     shoulder_orient: float
     hip_orient: float
     torso_orient: float
+    whole_body_orient: float
 
     @classmethod
     def from_keypoints(cls, keypoints : Keypoints) -> 'Orientation':
@@ -21,7 +22,8 @@ class Orientation:
         return cls(
             Orientation.get_angle(keypoints.right_shoulder, keypoints.left_shoulder),
             Orientation.get_angle(keypoints.right_hip, keypoints.left_hip),
-            Orientation.get_angle(keypoints.right_shoulder, keypoints.left_hip)
+            Orientation.get_angle(keypoints.right_shoulder, keypoints.left_hip),
+            Orientation.get_angle(keypoints.right_shoulder, keypoints.left_ankle)
                    ) 
 
     @staticmethod
@@ -40,10 +42,6 @@ class Orientation:
         vect = target_vect - origin_vect
         angle = np.arctan2(vect[2], vect[0])
         return np.rad2deg(angle)
-    
-    
-
-    
         
     
     
