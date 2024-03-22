@@ -1,0 +1,1954 @@
+<?xml version="1.0" encoding="utf-8"?>
+<annotations>
+  <version>1.1</version>
+  <meta>
+    <task>
+      <labels>
+        <label>
+          <name>0</name>
+          <color>#33ddff</color>
+          <type>points</type>
+          <attributes>
+            <attribute>
+              <name>Presumed_Location</name>
+              <mutable>False</mutable>
+              <input_type>checkbox</input_type>
+              <default_value>false</default_value>
+              <values>false</values>
+            </attribute>
+          </attributes>
+        </label>
+        <label>
+          <name>1</name>
+          <color>#fa3253</color>
+          <type>points</type>
+          <attributes>
+            <attribute>
+              <name>Presumed_Location</name>
+              <mutable>False</mutable>
+              <input_type>checkbox</input_type>
+              <default_value>false</default_value>
+              <values>false</values>
+            </attribute>
+          </attributes>
+        </label>
+        <label>
+          <name>2</name>
+          <color>#350dea</color>
+          <type>points</type>
+          <attributes>
+            <attribute>
+              <name>Presumed_Location</name>
+              <mutable>False</mutable>
+              <input_type>checkbox</input_type>
+              <default_value>false</default_value>
+              <values>false</values>
+            </attribute>
+          </attributes>
+        </label>
+        <label>
+          <name>3</name>
+          <color>#ff007c</color>
+          <type>points</type>
+          <attributes>
+            <attribute>
+              <name>Presumed_Location</name>
+              <mutable>False</mutable>
+              <input_type>checkbox</input_type>
+              <default_value>false</default_value>
+              <values>false</values>
+            </attribute>
+          </attributes>
+        </label>
+        <label>
+          <name>4</name>
+          <color>#4a649f</color>
+          <type>points</type>
+          <attributes>
+            <attribute>
+              <name>Presumed_Location</name>
+              <mutable>False</mutable>
+              <input_type>checkbox</input_type>
+              <default_value>false</default_value>
+              <values>false</values>
+            </attribute>
+          </attributes>
+        </label>
+        <label>
+          <name>5</name>
+          <color>#478144</color>
+          <type>points</type>
+          <attributes>
+            <attribute>
+              <name>Presumed_Location</name>
+              <mutable>False</mutable>
+              <input_type>checkbox</input_type>
+              <default_value>false</default_value>
+              <values>false</values>
+            </attribute>
+          </attributes>
+        </label>
+        <label>
+          <name>6</name>
+          <color>#57236b</color>
+          <type>points</type>
+          <attributes>
+            <attribute>
+              <name>Presumed_Location</name>
+              <mutable>False</mutable>
+              <input_type>checkbox</input_type>
+              <default_value>false</default_value>
+              <values>false</values>
+            </attribute>
+          </attributes>
+        </label>
+        <label>
+          <name>7</name>
+          <color>#1cdda5</color>
+          <type>points</type>
+          <attributes>
+            <attribute>
+              <name>Presumed_Location</name>
+              <mutable>False</mutable>
+              <input_type>checkbox</input_type>
+              <default_value>false</default_value>
+              <values>false</values>
+            </attribute>
+          </attributes>
+        </label>
+        <label>
+          <name>8</name>
+          <color>#e2bc6e</color>
+          <type>points</type>
+          <attributes>
+            <attribute>
+              <name>Presumed_Location</name>
+              <mutable>False</mutable>
+              <input_type>checkbox</input_type>
+              <default_value>false</default_value>
+              <values>false</values>
+            </attribute>
+          </attributes>
+        </label>
+        <label>
+          <name>9</name>
+          <color>#f067db</color>
+          <type>points</type>
+          <attributes>
+            <attribute>
+              <name>Presumed_Location</name>
+              <mutable>False</mutable>
+              <input_type>checkbox</input_type>
+              <default_value>false</default_value>
+              <values>false</values>
+            </attribute>
+          </attributes>
+        </label>
+        <label>
+          <name>10</name>
+          <color>#63bbfa</color>
+          <type>points</type>
+          <attributes>
+            <attribute>
+              <name>Presumed_Location</name>
+              <mutable>False</mutable>
+              <input_type>checkbox</input_type>
+              <default_value>false</default_value>
+              <values>false</values>
+            </attribute>
+          </attributes>
+        </label>
+        <label>
+          <name>11</name>
+          <color>#22b16f</color>
+          <type>points</type>
+          <attributes>
+            <attribute>
+              <name>Presumed_Location</name>
+              <mutable>False</mutable>
+              <input_type>checkbox</input_type>
+              <default_value>false</default_value>
+              <values>false</values>
+            </attribute>
+          </attributes>
+        </label>
+        <label>
+          <name>12</name>
+          <color>#daddec</color>
+          <type>points</type>
+          <attributes>
+            <attribute>
+              <name>Presumed_Location</name>
+              <mutable>False</mutable>
+              <input_type>checkbox</input_type>
+              <default_value>false</default_value>
+              <values>false</values>
+            </attribute>
+          </attributes>
+        </label>
+        <label>
+          <name>13</name>
+          <color>#2ac791</color>
+          <type>points</type>
+          <attributes>
+            <attribute>
+              <name>Presumed_Location</name>
+              <mutable>False</mutable>
+              <input_type>checkbox</input_type>
+              <default_value>false</default_value>
+              <values>false</values>
+            </attribute>
+          </attributes>
+        </label>
+        <label>
+          <name>14</name>
+          <color>#de22a0</color>
+          <type>points</type>
+          <attributes>
+            <attribute>
+              <name>Presumed_Location</name>
+              <mutable>False</mutable>
+              <input_type>checkbox</input_type>
+              <default_value>false</default_value>
+              <values>false</values>
+            </attribute>
+          </attributes>
+        </label>
+        <label>
+          <name>15</name>
+          <color>#a7a570</color>
+          <type>points</type>
+          <attributes>
+            <attribute>
+              <name>Presumed_Location</name>
+              <mutable>False</mutable>
+              <input_type>checkbox</input_type>
+              <default_value>false</default_value>
+              <values>false</values>
+            </attribute>
+          </attributes>
+        </label>
+        <label>
+          <name>16</name>
+          <color>#74db1b</color>
+          <type>points</type>
+          <attributes>
+            <attribute>
+              <name>Presumed_Location</name>
+              <mutable>False</mutable>
+              <input_type>checkbox</input_type>
+              <default_value>false</default_value>
+              <values>false</values>
+            </attribute>
+          </attributes>
+        </label>
+        <label>
+          <name>17</name>
+          <color>#aaa246</color>
+          <type>points</type>
+          <attributes>
+            <attribute>
+              <name>Presumed_Location</name>
+              <mutable>False</mutable>
+              <input_type>checkbox</input_type>
+              <default_value>false</default_value>
+              <values>false</values>
+            </attribute>
+          </attributes>
+        </label>
+        <label>
+          <name>human_box</name>
+          <color>#3df53d</color>
+          <type>rectangle</type>
+          <attributes>
+          </attributes>
+        </label>
+      </labels>
+    </task>
+    <dumped>2023-05-17 20:05:47.728362+00:00</dumped>
+  </meta>
+  <image id="0" name="PE/0.jpg" width="3580" height="5370">
+    <points label="1" occluded="0" source="manual" points="1371.13,1385.42" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="2" occluded="0" source="manual" points="1152.69,1381.02" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="3" occluded="0" source="manual" points="974.97,993.31" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="4" occluded="0" source="manual" points="810.17,465.79" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="5" occluded="0" source="manual" points="1627.15,1471.94" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="6" occluded="0" source="manual" points="1914.41,1126.00" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="7" occluded="0" source="manual" points="2164.00,635.83" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <box label="human_box" occluded="0" source="manual" xtl="736.36" ytl="183.87" xbr="2349.11" ybr="3615.50" z_order="0">
+    </box>
+    <points label="17" occluded="0" source="manual" points="1498.79,1104.81" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="16" occluded="0" source="manual" points="1264.05,1202.17" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="15" occluded="0" source="manual" points="1479.86,1139.97" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="14" occluded="0" source="manual" points="1376.01,1169.18" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="13" occluded="0" source="manual" points="1790.43,3424.59" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="12" occluded="0" source="manual" points="1686.80,2796.22" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="11" occluded="0" source="manual" points="1670.54,2201.51" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="10" occluded="0" source="manual" points="1955.60,3161.29" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="9" occluded="0" source="manual" points="1759.91,2711.40" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="8" occluded="0" source="manual" points="1447.13,2276.73" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="0" occluded="0" source="manual" points="1455.34,1206.07" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+  </image>
+  <image id="1" name="PE/1.jpg" width="3217" height="4825">
+    <points label="9" occluded="0" source="manual" points="922.88,3542.87" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="11" occluded="0" source="manual" points="1549.90,2877.07" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="13" occluded="0" source="manual" points="1835.28,4288.75" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="14" occluded="0" source="manual" points="1383.10,1489.38" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="15" occluded="0" source="manual" points="1497.14,1504.75" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="16" occluded="0" source="manual" points="1243.42,1585.26" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="17" occluded="0" source="manual" points="1457.70,1555.90" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="0" occluded="0" source="manual" points="1469.62,1517.95" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <box label="human_box" occluded="0" source="manual" xtl="452.21" ytl="1255.88" xbr="2164.79" ybr="4462.62" z_order="0">
+    </box>
+    <points label="12" occluded="0" source="manual" points="1593.80,3532.20" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="1" occluded="0" source="manual" points="1379.63,1812.04" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="2" occluded="0" source="manual" points="978.18,1906.83" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="3" occluded="0" source="manual" points="555.62,2072.72" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="4" occluded="0" source="manual" points="554.75,1571.32" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="5" occluded="0" source="manual" points="1674.58,1882.38" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="6" occluded="0" source="manual" points="2112.12,1914.71" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="7" occluded="0" source="manual" points="1953.96,1380.19" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="8" occluded="0" source="manual" points="1075.83,2846.31" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="10" occluded="0" source="manual" points="797.87,4250.90" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+  </image>
+  <image id="2" name="PE/10.jpg" width="2792" height="3634">
+    <points label="13" occluded="0" source="manual" points="1342.18,3173.20" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="0" occluded="0" source="manual" points="1849.69,1834.31" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="16" occluded="0" source="manual" points="1780.43,1788.39" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="17" occluded="0" source="manual" points="2057.80,1773.97" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <box label="human_box" occluded="0" source="manual" xtl="420.51" ytl="1269.38" xbr="2744.81" ybr="3326.74" z_order="0">
+    </box>
+    <points label="12" occluded="0" source="manual" points="2206.31,3064.37" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="15" occluded="0" source="manual" points="1919.46,1774.53" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="1" occluded="0" source="manual" points="1976.06,2068.80" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="2" occluded="0" source="manual" points="1593.61,2087.05" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="3" occluded="0" source="manual" points="1171.18,2305.87" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="4" occluded="0" source="manual" points="640.90,2386.54" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="5" occluded="0" source="manual" points="2109.22,1893.58" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="6" occluded="0" source="manual" points="2415.28,1631.87" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="7" occluded="0" source="manual" points="2503.54,1311.72" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="8" occluded="0" source="manual" points="1342.18,2780.47" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="9" occluded="0" source="manual" points="1586.36,3247.83" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="10" occluded="0" source="manual" points="838.59,2883.36" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="11" occluded="0" source="manual" points="1421.88,2826.12" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="14" occluded="0" source="manual" points="1802.47,1783.23" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+  </image>
+  <image id="3" name="PE/11.jpg" width="3573" height="5242">
+    <points label="10" occluded="0" source="manual" points="1931.84,3830.00" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="13" occluded="0" source="manual" points="1537.33,3868.05" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="0" occluded="0" source="manual" points="1599.71,1363.03" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <box label="human_box" occluded="0" source="manual" xtl="740.05" ytl="958.06" xbr="3029.41" ybr="4037.20" z_order="0">
+    </box>
+    <points label="17" occluded="0" source="manual" points="1824.51,1483.91" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="16" occluded="0" source="manual" points="1699.83,1441.64" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="15" occluded="0" source="manual" points="1675.00,1348.13" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="12" occluded="0" source="manual" points="1663.82,3151.93" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="14" occluded="0" source="manual" points="1589.25,1368.63" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="1" occluded="0" source="manual" points="1675.28,1622.92" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="2" occluded="0" source="manual" points="1459.29,1711.10" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="3" occluded="0" source="manual" points="1075.28,1581.41" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="4" occluded="0" source="manual" points="831.86,1173.66" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="5" occluded="0" source="manual" points="1962.95,1781.54" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="6" occluded="0" source="manual" points="2322.63,2019.43" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="7" occluded="0" source="manual" points="2791.16,2057.29" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="8" occluded="0" source="manual" points="1564.59,2632.27" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="9" occluded="0" source="manual" points="1756.40,3146.90" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="11" occluded="0" source="manual" points="1861.72,2584.11" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+  </image>
+  <image id="4" name="PE/12.jpg" width="5247" height="3498">
+    <points label="8" occluded="0" source="manual" points="2641.05,1470.79" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="7" occluded="0" source="manual" points="2272.60,3209.05" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="6" occluded="0" source="manual" points="3067.17,3156.67" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="5" occluded="0" source="manual" points="2964.57,2484.34" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="4" occluded="0" source="manual" points="2222.40,3141.39" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="3" occluded="0" source="manual" points="2781.65,2975.49" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="2" occluded="0" source="manual" points="2610.95,2259.51" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="17" occluded="0" source="manual" points="2369.56,2682.13" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="1" occluded="0" source="manual" points="2740.42,2606.14" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="0" occluded="0" source="manual" points="2310.54,2879.00" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <box label="human_box" occluded="0" source="manual" xtl="1172.26" ytl="228.50" xbr="4143.82" ybr="3271.81" z_order="0">
+    </box>
+    <points label="16" occluded="0" source="manual" points="2281.64,2680.62" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="15" occluded="0" source="manual" points="2332.10,2778.30" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="14" occluded="0" source="manual" points="2260.50,2785.80" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="13" occluded="0" source="manual" points="3550.89,496.62" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="12" occluded="0" source="manual" points="4016.10,1564.31" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="11" occluded="0" source="manual" points="3007.09,1378.85" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="10" occluded="0" source="manual" points="1360.89,2097.61" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="9" occluded="0" source="manual" points="1852.04,1078.94" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+  </image>
+  <image id="5" name="PE/13.jpg" width="2997" height="4496">
+    <points label="14" occluded="0" source="manual" points="1869.10,1308.20" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="0" occluded="0" source="manual" points="1821.44,1378.46" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="17" occluded="0" source="manual" points="1734.00,1318.90" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="1" occluded="0" source="manual" points="1788.97,1459.64" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="2" occluded="0" source="manual" points="2008.95,1506.08" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="3" occluded="0" source="manual" points="2390.83,1716.50" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="4" occluded="0" source="manual" points="2694.78,1802.23" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="5" occluded="0" source="manual" points="1469.84,1462.05" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="6" occluded="0" source="manual" points="1025.61,1481.53" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="7" occluded="0" source="manual" points="546.31,1389.96" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="8" occluded="0" source="manual" points="1478.80,2276.10" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="9" occluded="0" source="manual" points="1288.64,2878.51" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="10" occluded="0" source="manual" points="319.13,2694.59" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="11" occluded="0" source="manual" points="1325.05,2287.39" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="12" occluded="0" source="manual" points="1692.03,2881.63" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="13" occluded="0" source="manual" points="1968.20,3543.85" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="15" occluded="0" source="manual" points="1789.40,1295.40" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="16" occluded="0" source="manual" points="1922.89,1353.68" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <box label="human_box" occluded="0" source="manual" xtl="132.09" ytl="1061.67" xbr="2890.70" ybr="3776.64" z_order="0">
+    </box>
+  </image>
+  <image id="6" name="PE/14.jpg" width="5472" height="3648">
+    <points label="14" occluded="0" source="manual" points="4010.64,1610.71" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="15" occluded="0" source="manual" points="4110.83,1769.54" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="16" occluded="0" source="manual" points="4126.40,1693.40" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="0" occluded="0" source="manual" points="3906.64,1748.73" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <box label="human_box" occluded="0" source="manual" xtl="473.30" ytl="532.22" xbr="5106.94" ybr="2798.06" z_order="0">
+    </box>
+    <points label="17" occluded="0" source="manual" points="4449.52,1945.08" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="1" occluded="0" source="manual" points="4048.92,2041.20" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="2" occluded="0" source="manual" points="3938.26,1559.03" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="3" occluded="0" source="manual" points="3166.79,991.75" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="4" occluded="0" source="manual" points="4128.50,1399.00" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="5" occluded="0" source="manual" points="4165.49,2552.38" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="6" occluded="0" source="manual" points="4963.17,2516.87" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="7" occluded="0" source="manual" points="4665.41,1825.73" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="8" occluded="0" source="manual" points="2416.89,2079.24" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="9" occluded="0" source="manual" points="1703.57,993.53" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="10" occluded="0" source="manual" points="782.42,1960.57" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="11" occluded="0" source="manual" points="2269.37,2187.42" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="12" occluded="0" source="manual" points="2721.75,630.31" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="13" occluded="0" source="manual" points="1482.62,1400.67" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+  </image>
+  <image id="7" name="PE/15.jpg" width="2969" height="4453">
+    <points label="1" occluded="0" source="manual" points="1286.12,1777.87" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <box label="human_box" occluded="0" source="manual" xtl="400.40" ytl="945.50" xbr="2739.80" ybr="3928.04" z_order="0">
+    </box>
+    <points label="17" occluded="0" source="manual" points="1295.95,1658.89" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="15" occluded="0" source="manual" points="1189.80,1776.23" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="14" occluded="0" source="manual" points="1078.91,1828.04" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="13" occluded="0" source="manual" points="2546.04,3749.50" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="12" occluded="0" source="manual" points="1851.34,3362.78" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="11" occluded="0" source="manual" points="1659.60,2625.24" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="10" occluded="0" source="manual" points="663.62,3842.13" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="9" occluded="0" source="manual" points="760.72,3009.90" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="8" occluded="0" source="manual" points="1443.72,2648.20" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="7" occluded="0" source="manual" points="937.71,1945.46" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="6" occluded="0" source="manual" points="1416.07,1857.98" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="5" occluded="0" source="manual" points="1459.00,1764.54" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="4" occluded="0" source="manual" points="760.81,1079.75" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="3" occluded="0" source="manual" points="721.95,1592.56" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="2" occluded="0" source="manual" points="1102.76,1753.38" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="16" occluded="0" source="manual" points="1059.80,1765.52" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="0" occluded="0" source="manual" points="1156.35,1857.55" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+  </image>
+  <image id="8" name="PE/16.jpg" width="2968" height="4016">
+    <points label="1" occluded="0" source="manual" points="1938.76,868.52" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="0" occluded="0" source="manual" points="2207.40,736.54" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <box label="human_box" occluded="0" source="manual" xtl="498.64" ytl="255.44" xbr="2593.95" ybr="3791.26" z_order="0">
+    </box>
+    <points label="17" occluded="0" source="manual" points="1939.62,572.71" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="16" occluded="0" source="manual" points="2028.25,583.79" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="15" occluded="0" source="manual" points="2101.77,625.08" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="14" occluded="0" source="manual" points="2184.36,651.27" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="13" occluded="0" source="manual" points="2263.74,3529.35" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="12" occluded="0" source="manual" points="2090.52,2518.89" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="11" occluded="0" source="manual" points="1507.30,2048.70" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="10" occluded="0" source="manual" points="781.97,3492.18" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="9" occluded="0" source="manual" points="1644.83,2883.02" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="8" occluded="0" source="manual" points="1413.51,2063.09" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="7" occluded="0" source="manual" points="935.10,2090.70" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="6" occluded="0" source="manual" points="1180.49,1530.30" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="5" occluded="0" source="manual" points="1553.65,910.08" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="4" occluded="0" source="manual" points="1794.84,2376.12" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="3" occluded="0" source="manual" points="1753.07,1732.88" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="2" occluded="0" source="manual" points="1900.16,1028.87" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+  </image>
+  <image id="9" name="PE/17.jpg" width="3265" height="4898">
+    <points label="17" occluded="0" source="manual" points="1891.10,725.19" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="14" occluded="0" source="manual" points="1621.88,639.21" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="15" occluded="0" source="manual" points="1775.74,640.54" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="0" occluded="0" source="manual" points="1690.09,708.27" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="1" occluded="0" source="manual" points="1690.09,1062.27" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="6" occluded="0" source="manual" points="2507.42,1865.34" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="7" occluded="0" source="manual" points="2239.10,2104.10" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="2" occluded="0" source="manual" points="1182.42,1258.83" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="3" occluded="0" source="manual" points="1051.91,1754.29" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="4" occluded="0" source="manual" points="1021.34,2383.63" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="11" occluded="0" source="manual" points="1897.64,2447.82" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="12" occluded="0" source="manual" points="1775.13,3485.93" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="13" occluded="0" source="manual" points="1532.80,4414.20" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="5" occluded="0" source="manual" points="2245.78,1287.67" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="8" occluded="0" source="manual" points="1375.35,2466.89" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="9" occluded="0" source="manual" points="1497.85,3188.72" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="10" occluded="0" source="manual" points="1405.06,4104.20" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <box label="human_box" occluded="0" source="manual" xtl="854.26" ytl="278.42" xbr="2589.25" ybr="4621.82" z_order="0">
+    </box>
+    <points label="16" occluded="0" source="manual" points="1507.24,712.91" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+  </image>
+  <image id="10" name="PE/18.jpg" width="3744" height="5616">
+    <points label="0" occluded="0" source="manual" points="1923.62,1657.12" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="1" occluded="0" source="manual" points="1892.50,1980.65" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="2" occluded="0" source="manual" points="1754.40,1993.90" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="3" occluded="0" source="manual" points="1582.36,1574.77" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="4" occluded="0" source="manual" points="1532.42,1006.73" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="5" occluded="0" source="manual" points="2175.22,2018.68" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="6" occluded="0" source="manual" points="2648.33,1779.20" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="7" occluded="0" source="manual" points="3194.46,1425.82" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="8" occluded="0" source="manual" points="1868.57,3043.77" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="9" occluded="0" source="manual" points="1047.91,3233.60" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="10" occluded="0" source="manual" points="1740.06,3785.57" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="11" occluded="0" source="manual" points="2075.92,2982.44" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="12" occluded="0" source="manual" points="2385.49,3829.37" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="13" occluded="0" source="manual" points="3013.40,3037.90" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="14" occluded="0" source="manual" points="1870.03,1634.01" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="15" occluded="0" source="manual" points="1986.69,1628.69" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="16" occluded="0" source="manual" points="1776.77,1721.51" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="17" occluded="0" source="manual" points="2084.86,1716.62" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <box label="human_box" occluded="0" source="manual" xtl="1005.24" ytl="904.08" xbr="3435.60" ybr="4029.50" z_order="0">
+    </box>
+  </image>
+  <image id="11" name="PE/19.jpg" width="4698" height="7050">
+    <points label="0" occluded="0" source="manual" points="2782.80,1539.20" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="1" occluded="0" source="manual" points="2620.48,1819.68" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="2" occluded="0" source="manual" points="2176.99,1884.83" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="3" occluded="0" source="manual" points="1562.12,1442.76" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="4" occluded="0" source="manual" points="979.40,1040.89" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="5" occluded="0" source="manual" points="2792.25,1806.16" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="6" occluded="0" source="manual" points="2895.74,1454.05" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="7" occluded="0" source="manual" points="2877.14,1077.29" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="8" occluded="0" source="manual" points="2269.16,3163.33" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="9" occluded="0" source="manual" points="1593.33,4120.81" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="10" occluded="0" source="manual" points="943.63,4120.81" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="11" occluded="0" source="manual" points="2611.42,3282.56" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="12" occluded="0" source="manual" points="3578.34,4026.84" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="13" occluded="0" source="manual" points="2918.86,4891.41" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="14" occluded="0" source="manual" points="2676.25,1475.94" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="15" occluded="0" source="manual" points="2780.62,1499.38" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="16" occluded="0" source="manual" points="2404.60,1567.47" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="17" occluded="0" source="manual" points="2561.40,1562.62" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <box label="human_box" occluded="0" source="manual" xtl="696.68" ytl="853.34" xbr="3694.23" ybr="5209.70" z_order="0">
+    </box>
+  </image>
+  <image id="12" name="PE/2.JPG" width="3648" height="5472">
+    <points label="0" occluded="0" source="manual" points="2445.36,1378.82" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="1" occluded="0" source="manual" points="2126.12,1570.21" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="2" occluded="0" source="manual" points="1767.10,1448.73" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="3" occluded="0" source="manual" points="1440.91,928.08" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="4" occluded="0" source="manual" points="1194.85,349.52" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="5" occluded="0" source="manual" points="2235.25,1979.35" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="6" occluded="0" source="manual" points="1552.63,2262.36" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="7" occluded="0" source="manual" points="910.00,1975.43" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="8" occluded="0" source="manual" points="1898.94,2857.79" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="9" occluded="0" source="manual" points="2100.55,3599.88" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="10" occluded="0" source="manual" points="2522.81,4589.74" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="11" occluded="0" source="manual" points="2095.63,2808.62" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="12" occluded="0" source="manual" points="1954.26,3901.47" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="13" occluded="0" source="manual" points="1946.07,5016.03" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="14" occluded="0" source="manual" points="2394.14,1273.51" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="15" occluded="0" source="manual" points="2507.71,1382.31" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="16" occluded="0" source="manual" points="2174.56,1270.81" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="17" occluded="0" source="manual" points="2460.45,1527.48" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <box label="human_box" occluded="0" source="manual" xtl="571.30" ytl="246.77" xbr="2695.53" ybr="5183.62" z_order="0">
+    </box>
+  </image>
+  <image id="13" name="PE/20.jpg" width="4896" height="3264">
+    <points label="0" occluded="0" source="manual" points="1612.95,2342.84" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="1" occluded="0" source="manual" points="1760.27,2023.48" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <box label="human_box" occluded="0" source="manual" xtl="1149.84" ytl="1276.55" xbr="3416.00" ybr="2857.86" z_order="0">
+    </box>
+    <points label="17" occluded="0" source="manual" points="1676.59,2302.93" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="16" occluded="0" source="manual" points="1479.46,2131.03" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="15" occluded="0" source="manual" points="1643.33,2333.76" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="14" occluded="0" source="manual" points="1529.41,2300.75" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="13" occluded="0" source="manual" points="3021.56,2051.60" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="12" occluded="0" source="manual" points="2490.68,2192.39" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="10" occluded="0" source="manual" points="3262.07,1418.06" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="9" occluded="0" source="manual" points="2845.58,1415.13" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="8" occluded="0" source="manual" points="2314.70,1388.73" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="11" occluded="0" source="manual" points="2352.82,1673.24" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="7" occluded="0" source="manual" points="2338.16,2828.86" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="6" occluded="0" source="manual" points="2402.69,2300.91" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="5" occluded="0" source="manual" points="2015.52,2054.53" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="4" occluded="0" source="manual" points="1340.92,2746.73" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="3" occluded="0" source="manual" points="1200.13,2180.65" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="2" occluded="0" source="manual" points="1481.71,1852.15" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+  </image>
+  <image id="14" name="PE/21.jpg" width="4851" height="3234">
+    <points label="9" occluded="0" source="manual" points="1622.64,2031.68" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="0" occluded="0" source="manual" points="2582.02,999.82" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="1" occluded="0" source="manual" points="2294.02,1084.28" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="2" occluded="0" source="manual" points="1981.73,860.55" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="3" occluded="0" source="manual" points="1701.59,483.70" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="4" occluded="0" source="manual" points="2241.64,367.45" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="5" occluded="0" source="manual" points="2557.12,1194.88" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="6" occluded="0" source="manual" points="3011.20,1152.50" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="7" occluded="0" source="manual" points="3591.80,1085.10" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="8" occluded="0" source="manual" points="2027.56,2022.72" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="10" occluded="0" source="manual" points="2303.16,2651.65" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="11" occluded="0" source="manual" points="2240.19,1908.17" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="12" occluded="0" source="manual" points="2911.02,1578.81" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="13" occluded="0" source="manual" points="3717.46,1220.39" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="14" occluded="0" source="manual" points="2531.33,910.88" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="15" occluded="0" source="manual" points="2580.89,938.53" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="16" occluded="0" source="manual" points="2326.24,887.52" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="17" occluded="0" source="manual" points="2404.95,907.91" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <box label="human_box" occluded="0" source="manual" xtl="1546.87" ytl="291.43" xbr="3966.40" ybr="2807.60" z_order="0">
+    </box>
+  </image>
+  <image id="15" name="PE/22.jpg" width="5461" height="8192">
+    <points label="0" occluded="0" source="manual" points="2005.55,1568.14" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="1" occluded="0" source="manual" points="1654.53,1696.85" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="2" occluded="0" source="manual" points="1110.41,1719.92" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="3" occluded="0" source="manual" points="459.70,2113.76" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="4" occluded="0" source="manual" points="741.02,2793.61" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="5" occluded="0" source="manual" points="2090.66,1708.54" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="6" occluded="0" source="manual" points="2763.80,2130.51" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="7" occluded="0" source="manual" points="3567.56,2492.20" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="8" occluded="0" source="manual" points="1538.41,2917.65" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="9" occluded="0" source="manual" points="2094.45,3992.60" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="10" occluded="0" source="manual" points="2817.83,4870.30" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="11" occluded="0" source="manual" points="2002.82,2584.42" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="12" occluded="0" source="manual" points="2673.15,3177.59" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="13" occluded="0" source="manual" points="3637.66,4089.05" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="14" occluded="0" source="manual" points="1885.32,1475.27" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="15" occluded="0" source="manual" points="1987.38,1461.82" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="16" occluded="0" source="manual" points="1576.89,1371.65" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="17" occluded="0" source="manual" points="1772.63,1392.97" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <box label="human_box" occluded="0" source="manual" xtl="360.00" ytl="900.00" xbr="3900.00" ybr="5170.00" z_order="0">
+    </box>
+  </image>
+  <image id="16" name="PE/23.jpg" width="3705" height="5557">
+    <points label="0" occluded="0" source="manual" points="2419.93,2156.54" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="1" occluded="0" source="manual" points="2157.93,2310.40" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="2" occluded="0" source="manual" points="1881.96,2300.98" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="3" occluded="0" source="manual" points="1354.58,2404.54" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="4" occluded="0" source="manual" points="909.07,2563.47" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="5" occluded="0" source="manual" points="2120.37,2527.35" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="6" occluded="0" source="manual" points="1568.90,2250.41" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="7" occluded="0" source="manual" points="1496.66,1684.49" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="8" occluded="0" source="manual" points="1609.84,3300.37" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="9" occluded="0" source="manual" points="1007.80,3895.19" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="10" occluded="0" source="manual" points="1096.90,4639.31" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="11" occluded="0" source="manual" points="1822.84,3408.29" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="12" occluded="0" source="manual" points="1931.03,4248.88" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="13" occluded="0" source="manual" points="2829.87,4785.69" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="14" occluded="0" source="manual" points="2442.08,2114.11" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="15" occluded="0" source="manual" points="2480.73,2229.44" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="16" occluded="0" source="manual" points="2368.72,2159.68" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="17" occluded="0" source="manual" points="2416.53,2408.11" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <box label="human_box" occluded="0" source="manual" xtl="781.76" ytl="1552.70" xbr="2974.94" ybr="4946.40" z_order="0">
+    </box>
+  </image>
+  <image id="17" name="PE/24.jpg" width="3648" height="5472">
+    <points label="0" occluded="0" source="manual" points="1811.63,1888.66" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="1" occluded="0" source="manual" points="1806.90,2143.66" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="2" occluded="0" source="manual" points="1713.00,2210.40" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="3" occluded="0" source="manual" points="1563.34,1791.09" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="4" occluded="0" source="manual" points="1425.01,1336.58" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="5" occluded="0" source="manual" points="2068.07,2322.99" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="6" occluded="0" source="manual" points="2431.68,2409.54" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="7" occluded="0" source="manual" points="2941.51,2506.77" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="8" occluded="0" source="manual" points="1784.30,3037.79" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="9" occluded="0" source="manual" points="1803.28,3734.96" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="10" occluded="0" source="manual" points="1874.41,4547.10" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="11" occluded="0" source="manual" points="1970.20,3041.96" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="12" occluded="0" source="manual" points="1399.33,3256.73" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="13" occluded="0" source="manual" points="1934.52,3647.83" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="14" occluded="0" source="manual" points="1865.35,1890.16" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="15" occluded="0" source="manual" points="1889.84,1893.98" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="16" occluded="0" source="manual" points="1918.05,1981.58" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="17" occluded="0" source="manual" points="1969.91,2008.66" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <box label="human_box" occluded="0" source="manual" xtl="1227.04" ytl="1201.43" xbr="3091.20" ybr="4747.04" z_order="0">
+    </box>
+  </image>
+  <image id="18" name="PE/25.jpg" width="2829" height="3149">
+    <points label="0" occluded="0" source="manual" points="1424.65,555.10" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="1" occluded="0" source="manual" points="1324.92,641.40" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="2" occluded="0" source="manual" points="1515.44,658.37" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="3" occluded="0" source="manual" points="1817.65,760.24" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="4" occluded="0" source="manual" points="2350.77,726.29" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="5" occluded="0" source="manual" points="883.07,675.56" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="6" occluded="0" source="manual" points="531.95,976.22" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="7" occluded="0" source="manual" points="621.56,1334.65" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="8" occluded="0" source="manual" points="1154.14,1616.22" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="9" occluded="0" source="manual" points="970.32,2229.55" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="10" occluded="0" source="manual" points="620.00,2824.07" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="11" occluded="0" source="manual" points="843.55,1576.17" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="12" occluded="0" source="manual" points="764.32,2094.00" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="13" occluded="0" source="manual" points="286.10,2552.42" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="14" occluded="0" source="manual" points="1472.84,524.99" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="15" occluded="0" source="manual" points="1371.63,510.20" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="16" occluded="0" source="manual" points="1447.82,486.32" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="17" occluded="0" source="manual" points="1229.48,448.79" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <box label="human_box" occluded="0" source="manual" xtl="140.00" ytl="212.50" xbr="2615.50" ybr="2880.06" z_order="0">
+    </box>
+  </image>
+  <image id="19" name="PE/26.jpg" width="3456" height="5184">
+    <points label="0" occluded="0" source="manual" points="1997.00,2358.13" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="1" occluded="0" source="manual" points="2266.26,2510.02" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="2" occluded="0" source="manual" points="2038.70,2766.57" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="3" occluded="0" source="manual" points="1571.24,2862.32" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="4" occluded="0" source="manual" points="979.24,2897.91" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="5" occluded="0" source="manual" points="2646.87,2323.37" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="6" occluded="0" source="manual" points="2619.51,1977.38" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="7" occluded="0" source="manual" points="2680.73,1552.04" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="8" occluded="0" source="manual" points="2327.69,3395.24" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="9" occluded="0" source="manual" points="1596.31,3320.56" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="10" occluded="0" source="manual" points="2027.64,4137.40" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="11" occluded="0" source="manual" points="2663.86,3600.93" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="12" occluded="0" source="manual" points="2305.31,4326.10" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="13" occluded="0" source="manual" points="1909.03,4843.70" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="14" occluded="0" source="manual" points="2018.82,2353.62" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="15" occluded="0" source="manual" points="2065.54,2287.04" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="16" occluded="0" source="manual" points="2181.75,2430.93" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="17" occluded="0" source="manual" points="2273.84,2253.47" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <box label="human_box" occluded="0" source="manual" xtl="770.80" ytl="1319.45" xbr="2950.20" ybr="4975.90" z_order="0">
+    </box>
+  </image>
+  <image id="20" name="PE/27.jpg" width="5184" height="3456">
+    <points label="0" occluded="0" source="manual" points="2272.62,871.73" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="1" occluded="0" source="manual" points="2432.92,1007.01" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="2" occluded="0" source="manual" points="2757.64,1117.89" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="3" occluded="0" source="manual" points="3105.88,1191.85" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="4" occluded="0" source="manual" points="3503.25,1238.93" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="5" occluded="0" source="manual" points="2170.25,1057.42" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="6" occluded="0" source="manual" points="1825.83,1064.75" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="7" occluded="0" source="manual" points="1648.64,1058.55" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="8" occluded="0" source="manual" points="2776.09,1714.12" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="9" occluded="0" source="manual" points="3256.13,1840.93" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="10" occluded="0" source="manual" points="3926.85,1916.41" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="11" occluded="0" source="manual" points="2571.82,1813.54" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="12" occluded="0" source="manual" points="2485.12,2493.92" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="13" occluded="0" source="manual" points="2803.45,3151.27" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="14" occluded="0" source="manual" points="2332.46,826.77" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="15" occluded="0" source="manual" points="2305.72,828.09" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="16" occluded="0" source="manual" points="2473.83,864.35" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="17" occluded="0" source="manual" points="2419.58,875.18" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <box label="human_box" occluded="0" source="manual" xtl="1614.78" ytl="614.78" xbr="4096.15" ybr="3319.75" z_order="0">
+    </box>
+  </image>
+  <image id="21" name="PE/28.jpg" width="2048" height="1365">
+    <points label="0" occluded="0" source="manual" points="1295.68,352.30" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="1" occluded="0" source="manual" points="1095.08,374.45" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="2" occluded="0" source="manual" points="911.89,388.95" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="3" occluded="0" source="manual" points="835.58,691.62" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="4" occluded="0" source="manual" points="878.32,1132.66" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="5" occluded="0" source="manual" points="1199.43,409.89" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="6" occluded="0" source="manual" points="1278.74,703.10" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="7" occluded="0" source="manual" points="1453.60,1079.32" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="11" occluded="0" source="manual" points="630.53,337.33" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="8" occluded="0" source="manual" points="506.89,337.33" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="9" occluded="0" source="manual" points="941.55,575.92" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="10" occluded="0" source="manual" points="718.29,1084.09" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="12" occluded="0" source="manual" points="687.20,893.86" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="13" occluded="0" source="manual" points="408.48,986.94" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="14" occluded="0" source="manual" points="1265.18,294.08" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="15" occluded="0" source="manual" points="1316.36,302.83" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="16" occluded="0" source="manual" points="1124.19,253.66" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="17" occluded="0" source="manual" points="1208.78,272.68" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <box label="human_box" occluded="0" source="manual" xtl="326.80" ytl="59.32" xbr="1581.16" ybr="1242.24" z_order="0">
+    </box>
+  </image>
+  <image id="22" name="PE/3.jpg" width="3581" height="5371">
+    <points label="0" occluded="0" source="manual" points="1609.26,1718.14" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="1" occluded="0" source="manual" points="1449.64,1845.99" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="2" occluded="0" source="manual" points="1372.37,1783.88" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="3" occluded="0" source="manual" points="1619.09,1346.30" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="4" occluded="0" source="manual" points="2047.36,983.20" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="5" occluded="0" source="manual" points="1497.36,2025.25" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="6" occluded="0" source="manual" points="1079.79,1615.78" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="7" occluded="0" source="manual" points="630.11,1219.17" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="8" occluded="0" source="manual" points="1647.30,2779.50" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="9" occluded="0" source="manual" points="1289.37,3688.51" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="10" occluded="0" source="manual" points="1442.21,4645.75" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="11" occluded="0" source="manual" points="1695.60,2622.70" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="12" occluded="0" source="manual" points="2504.02,2433.64" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="13" occluded="0" source="manual" points="3018.84,1621.19" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="14" occluded="0" source="manual" points="1581.07,1623.94" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="15" occluded="0" source="manual" points="1689.34,1704.85" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="16" occluded="0" source="manual" points="1437.25,1590.55" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="17" occluded="0" source="manual" points="1703.73,1761.54" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <box label="human_box" occluded="0" source="manual" xtl="483.47" ytl="759.99" xbr="3265.70" ybr="4804.35" z_order="0">
+    </box>
+  </image>
+  <image id="23" name="PE/4.jpg" width="3208" height="4912">
+    <points label="0" occluded="0" source="manual" points="1637.00,1643.16" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="1" occluded="0" source="manual" points="2019.76,1904.46" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="2" occluded="0" source="manual" points="1506.19,1639.52" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="3" occluded="0" source="manual" points="945.25,1817.31" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="4" occluded="0" source="manual" points="129.89,1857.16" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="5" occluded="0" source="manual" points="2532.74,2389.28" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="6" occluded="0" source="manual" points="2506.99,3172.76" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="7" occluded="0" source="manual" points="2700.10,4116.25" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="8" occluded="0" source="manual" points="1583.74,3099.20" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="9" occluded="0" source="manual" points="303.69,3373.96" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="10" occluded="0" source="manual" points="910.61,3999.28" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="11" occluded="0" source="manual" points="1881.68,3208.44" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="12" occluded="0" source="manual" points="940.03,3296.72" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="13" occluded="0" source="manual" points="1844.89,4396.53" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="14" occluded="0" source="manual" points="1698.60,1564.12" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="15" occluded="0" source="manual" points="1751.87,1599.84" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="16" occluded="0" source="manual" points="1931.91,1561.74" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="17" occluded="0" source="manual" points="2063.89,1678.82" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <box label="human_box" occluded="0" source="manual" xtl="0.00" ytl="1113.66" xbr="3102.11" ybr="4626.05" z_order="0">
+    </box>
+  </image>
+  <image id="24" name="PE/5.jpg" width="4428" height="6244">
+    <points label="0" occluded="0" source="manual" points="2521.77,2076.22" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="1" occluded="0" source="manual" points="2335.13,2233.66" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="2" occluded="0" source="manual" points="2054.96,2300.18" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="3" occluded="0" source="manual" points="1536.33,2369.70" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="4" occluded="0" source="manual" points="1273.26,2892.09" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="5" occluded="0" source="manual" points="2500.86,2268.61" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="6" occluded="0" source="manual" points="2897.95,2531.30" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="7" occluded="0" source="manual" points="3085.11,2184.05" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="8" occluded="0" source="manual" points="1689.04,3119.05" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="9" occluded="0" source="manual" points="2506.91,3376.60" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="10" occluded="0" source="manual" points="1860.10,4109.14" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="11" occluded="0" source="manual" points="1883.48,3146.71" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="12" occluded="0" source="manual" points="1563.97,3910.42" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="13" occluded="0" source="manual" points="1415.90,4748.16" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="14" occluded="0" source="manual" points="2450.05,2029.58" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="15" occluded="0" source="manual" points="2524.91,2015.18" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="16" occluded="0" source="manual" points="2251.67,2038.71" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="17" occluded="0" source="manual" points="2382.73,2031.66" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <box label="human_box" occluded="0" source="manual" xtl="1174.87" ytl="1724.50" xbr="3172.90" ybr="4917.34" z_order="0">
+    </box>
+  </image>
+  <image id="25" name="PE/6.jpg" width="2790" height="4185">
+    <points label="0" occluded="0" source="manual" points="1358.41,1825.58" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="1" occluded="0" source="manual" points="1458.17,1992.96" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="2" occluded="0" source="manual" points="1469.39,2129.96" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="3" occluded="0" source="manual" points="1264.10,2451.12" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="4" occluded="0" source="manual" points="1196.09,2097.22" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="5" occluded="0" source="manual" points="1625.56,2080.85" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="6" occluded="0" source="manual" points="1978.20,2210.57" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="7" occluded="0" source="manual" points="1915.23,2628.70" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="8" occluded="0" source="manual" points="1725.40,2785.26" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="9" occluded="0" source="manual" points="1921.26,3301.49" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="10" occluded="0" source="manual" points="2537.16,3603.99" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="11" occluded="0" source="manual" points="1666.20,2773.51" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="12" occluded="0" source="manual" points="1153.70,3130.56" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="13" occluded="0" source="manual" points="987.61,3719.74" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="14" occluded="0" source="manual" points="1402.30,1796.80" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="15" occluded="0" source="manual" points="1407.21,1799.73" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="16" occluded="0" source="manual" points="1495.54,1842.59" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="17" occluded="0" source="manual" points="1528.78,1853.96" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <box label="human_box" occluded="0" source="manual" xtl="825.98" ytl="1664.28" xbr="2639.04" ybr="3867.25" z_order="0">
+    </box>
+  </image>
+  <image id="26" name="PE/7.jpg" width="3150" height="5183">
+    <points label="0" occluded="0" source="manual" points="1317.98,1796.26" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="1" occluded="0" source="manual" points="1366.03,1978.12" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="2" occluded="0" source="manual" points="1586.44,2095.86" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="3" occluded="0" source="manual" points="1705.04,1721.21" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="4" occluded="0" source="manual" points="1972.68,1810.16" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="5" occluded="0" source="manual" points="1439.01,2050.04" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="6" occluded="0" source="manual" points="1554.91,1667.30" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="7" occluded="0" source="manual" points="1896.99,1678.62" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="8" occluded="0" source="manual" points="1596.10,2654.50" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="9" occluded="0" source="manual" points="1281.07,3295.00" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="10" occluded="0" source="manual" points="971.11,3877.18" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="11" occluded="0" source="manual" points="1628.80,2499.90" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="12" occluded="0" source="manual" points="2210.95,2586.13" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="13" occluded="0" source="manual" points="2380.75,1923.09" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="14" occluded="0" source="manual" points="1390.20,1781.90" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="15" occluded="0" source="manual" points="1364.26,1775.47" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="16" occluded="0" source="manual" points="1480.07,1866.12" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="17" occluded="0" source="manual" points="1435.66,1872.62" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <box label="human_box" occluded="0" source="manual" xtl="834.40" ytl="1589.68" xbr="2528.94" ybr="4004.60" z_order="0">
+    </box>
+  </image>
+  <image id="27" name="PE/8.jpg" width="3809" height="4519">
+    <points label="0" occluded="0" source="manual" points="1758.04,1267.32" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="1" occluded="0" source="manual" points="1603.23,1470.07" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="2" occluded="0" source="manual" points="1052.93,1606.50" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="3" occluded="0" source="manual" points="717.28,2265.94" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="4" occluded="0" source="manual" points="1293.74,2348.19" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="5" occluded="0" source="manual" points="2026.94,1596.19" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="6" occluded="0" source="manual" points="2503.99,2061.49" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="7" occluded="0" source="manual" points="2562.74,1802.99" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="8" occluded="0" source="manual" points="1705.88,2937.66" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="9" occluded="0" source="manual" points="2773.54,3148.60" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="10" occluded="0" source="manual" points="3258.86,3913.67" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="11" occluded="0" source="manual" points="2105.20,2612.80" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="12" occluded="0" source="manual" points="3120.68,2850.52" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="13" occluded="0" source="manual" points="2855.60,3640.13" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="14" occluded="0" source="manual" points="1640.52,1188.90" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="15" occluded="0" source="manual" points="1800.31,1188.90" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="16" occluded="0" source="manual" points="1450.12,1210.43" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="17" occluded="0" source="manual" points="1782.18,1244.43" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <box label="human_box" occluded="0" source="manual" xtl="648.65" ytl="772.15" xbr="3649.15" ybr="4124.21" z_order="0">
+    </box>
+  </image>
+  <image id="28" name="PE/9.jpg" width="3276" height="4070">
+    <points label="0" occluded="0" source="manual" points="1758.79,2055.08" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="1" occluded="0" source="manual" points="1996.81,2236.67" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="2" occluded="0" source="manual" points="1649.50,2325.61" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="3" occluded="0" source="manual" points="1243.59,2592.87" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="4" occluded="0" source="manual" points="729.16,2581.11" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="5" occluded="0" source="manual" points="2335.24,2180.74" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="6" occluded="0" source="manual" points="2727.22,2135.87" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="7" occluded="0" source="manual" points="3165.34,1909.40" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="8" occluded="0" source="manual" points="1692.88,3089.78" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="9" occluded="0" source="manual" points="1067.45,3497.21" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="10" occluded="0" source="manual" points="252.95,3933.92" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="11" occluded="0" source="manual" points="1960.62,3141.63" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="12" occluded="0" source="manual" points="2475.36,3331.70" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="13" occluded="0" source="manual" points="1760.96,3697.57" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="14" occluded="0" source="manual" points="1767.61,2016.19" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="15" occluded="0" source="manual" points="1810.38,2000.78" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <points label="16" occluded="0" source="manual" points="1895.59,2007.02" z_order="0">
+      <attribute name="Presumed_Location">true</attribute>
+    </points>
+    <points label="17" occluded="0" source="manual" points="1996.81,1999.62" z_order="0">
+      <attribute name="Presumed_Location">false</attribute>
+    </points>
+    <box label="human_box" occluded="0" source="manual" xtl="51.70" ytl="1696.00" xbr="3219.99" ybr="4039.50" z_order="0">
+    </box>
+  </image>
+</annotations>
+
+
