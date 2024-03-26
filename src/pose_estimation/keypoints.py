@@ -99,7 +99,8 @@ class Keypoints:
             normalized_landmarks
         )
     
-    def from_world_landmarks(cls, world_landmarks: [Landmark]) -> 'Keypoints':
+    @classmethod
+    def from_world_landmarks(cls, world_landmarks: list[Landmark]) -> 'Keypoints':
         return cls(
             *[world_landmarks[idx] for idx in itertools.chain(range(11, 17), range(23, 29))],
             world_landmarks

@@ -5,8 +5,10 @@ from mediapipe.tasks import python
 import mediapipe as mp
 from mediapipe.tasks.python import vision
 from mediapipe.tasks.python.components.containers.landmark_detection_result import LandmarksDetectionResult
+from mediapipe.tasks.python.vision.pose_landmarker import PoseLandmarkerResult, PoseLandmarker
 
 from pose_estimation.keypoints import Keypoints
+
 
 class MediaPipe:
     # different options of model to use "pose_landmarker_{lite/full/heavy}"
@@ -26,7 +28,8 @@ class MediaPipe:
             running_mode= mode)
 
         # Create Landmarker
-        self.landmarker = vision.PoseLandmarker.create_from_options(options)
+        self.landmarker : PoseLandmarker= vision.PoseLandmarker.create_from_options(options)
+        
 
     def process_frame(self, frame, timestamp: float) -> Keypoints:
         '''
@@ -50,14 +53,15 @@ class MediaPipe:
     def process_image_global(self, image: np.ndarray) -> Keypoints:
         return self.__extract_global_keypoints(self.landmarker.detect(image))
     
-    def __extract_global_keypoints(self, landmarks: LandmarksDetectionResult) -> Keypoints | None:
+    def __extract_global_keypoints(self, landmarks: PoseLandmarkerResult) -> Keypoints | None:
         # If landmarks are not found (user out of frame) return None
         if len(landmarks.pose_landmarks) == 0:
             return None
         else:
-            return Keypoints.from_world_landmarks(landmarks.pose_landmarks[1])
+            print(landmarks.pose_world_landmarks[0])
+            return Keypoints.from_world_landmarks(landmarks.pose_world_landmarks[0])
     
-    def __extract_keypoints(self, landmarks: LandmarksDetectionResult) -> Keypoints | None:
+    def __extract_keypoints(self, landmarks: PoseLandmarkerResult) -> Keypoints | None:
         # If landmarks are not found (user out of frame) return None
         if len(landmarks.pose_landmarks) == 0:
             return None
