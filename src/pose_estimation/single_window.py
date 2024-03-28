@@ -4,6 +4,8 @@ import argparse
 import numpy as np
 import cv2
 import timeit
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 import mediapipe as mp
 from mediapipe.tasks.python import vision
@@ -105,14 +107,19 @@ def profile_image_inference():
     image = mp.Image.create_from_file(args.file)
 
     media_pipe = MediaPipe()
-    media_pipe.initialize(mode=vision.RunningMode.IMAGE)
+    media_pipe.initialize("pose_landmarker_full.task", mode=vision.RunningMode.IMAGE)
 
     def run_inference():
         media_pipe.process_image(image)
 
     iteration_number = 100
-    time = timeit.timeit(run_inference, number=iteration_number)
-    print(f"Time running inference is: {time / iteration_number:.3f}")
+    time = timeit.repeat(run_inference, repeat=iteration_number, number=1)
+    deviation = np.std(time, ddof=len(time) - 1)
+    print(f"Time running inference is: {sum(time) / iteration_number:.3f}")
+    print(f"Standard deviation of running time: {deviation:.3f}")
+    plot = sns.histplot(time, binwidth=0.002)
+    plot.set_xlabel("Inference time in seconds")
+    plt.show()
 
 
 def estimate_video():
