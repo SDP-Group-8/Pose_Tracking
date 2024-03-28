@@ -3,12 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 import itertools
 import numpy as np
-from typing import Iterable
-import json
 from mediapipe.tasks.python.components.containers.landmark import NormalizedLandmark
-
-from pose_estimation.keypoint_encoder import KeypointEncoder
-from pose_estimation.keypoint_decoder import KeypointDecoder
 
 @dataclass
 class Keypoints:
@@ -28,8 +23,23 @@ class Keypoints:
 
     normalized_landmarks: list[NormalizedLandmark]
 
+    ordered_fields = [
+        "left_shoulder",
+        "right_shoulder",
+        "left_elbow",
+        "right_elbow",
+        "left_wrist",
+        "right_wrist",
+        "left_hip",
+        "right_hip",
+        "left_knee",
+        "right_knee",
+        "left_ankle",
+        "right_ankle",
+    ]
+
     def to_numpy_positions(self) -> 'np.ndarray':
-        return np.asarray([(landmark.x, landmark.y) for landmark in [
+        return np.asarray([(landmark.x, landmark.y, landmark.presence, landmark.visibility) for landmark in [
                 self.left_shoulder,
                 self.right_shoulder,
                 self.left_elbow,
@@ -45,6 +55,17 @@ class Keypoints:
                 self.right_ankle
             ]
         ])
+
+    @classmethod
+    def from_dict(cls, dct) -> 'Keypoints':
+        return cls(
+            *(dct[name] for name in Keypoints.ordered_fields),
+            []
+        )
+
+    @classmethod
+    def from_numpy_positions(cls, array) -> 'Keypoints':
+        return cls(*({"x": keypoint.x, "y": keypoint.y, "presence": keypoint.presence, "visibility": keypoint.visibility} for keypoint in array))
 
     def to_dict(self):
         return {
@@ -62,22 +83,6 @@ class Keypoints:
             "left_ankle": self.left_ankle,
             "right_ankle": self.right_ankle
         }
-
-    @staticmethod
-    def serialize(keypoints: 'Keypoints') -> str:
-        return json.dumps(keypoints.to_dict(), cls=KeypointEncoder)
-
-    @staticmethod
-    def batch_serialize(iter: Iterable['Keypoints | None']) -> str:
-        return "\n".join("None" if keypoints is None else Keypoints.serialize(keypoints) for keypoints in iter)
-
-    @staticmethod
-    def deserialize(repr: str) -> 'Keypoints':
-        return json.loads(repr, cls=KeypointDecoder)
-
-    @staticmethod
-    def batch_deserialize(repr: str) -> Iterable['Keypoints | None']:
-        return (None if keypoint_repr == "None" else Keypoints.deserialize(keypoint_repr) for keypoint_repr in repr.split("\n"))
 
     def to_normalized_landmarks(self) -> list[NormalizedLandmark]:
         '''

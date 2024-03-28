@@ -15,8 +15,3 @@ class Score(ABC):
     def compute_each_score(first_keypoints: KeypointStatistics, second_keypoints: KeypointStatistics, 
                            weights: np.ndarray = None, isScaled : bool = False) -> list[float]:
         pass
-
-    @abstractmethod
-    def scale_score(score : float) -> float:
-        pass
-    
