@@ -100,7 +100,7 @@ def estimate_live_video_comparison():
             live_timestamp = int(live.get_timestamp())
             live_detections = media_pipe.process_frame(live_frame, timestamp = live_timestamp)
 
-            reference_detections = ref_pose_data[frame_count]
+            reference_detections = ref_pose_data[frame_count].keypoints
             frame_count += 1
 
             if live_detections and reference_detections:
@@ -108,7 +108,7 @@ def estimate_live_video_comparison():
                 live_statistics = KeypointStatistics.from_keypoints(live_detections)
                 scaled_keypoints = KeypointScaling.scale_keypoints(reference_statistics, live_statistics)
 
-                score = AngleScore.compute_score(reference_statistics, scaled_keypoints, isScaled=True)
+                score = AngleScore.compute_score(reference_statistics, scaled_keypoints)
 
                 window.draw_and_show(
                     reference_frame, 

@@ -22,6 +22,17 @@ class KeypointStatistics:
     l_hip_r_hip_r_knee: float
     r_hip_r_knee_r_ankle: float
 
+    ordered_fields = [
+        "r_shoulder_l_shoulder_l_elbow",
+        "l_shoulder_l_elbow_l_wrist",
+        "l_shoulder_r_shoulder_r_elbow",
+        "r_shoulder_r_elbow_r_wrist",
+        "r_hip_l_hip_l_knee",
+        "l_hip_l_knee_l_ankle",
+        "l_hip_r_hip_r_knee",
+        "r_hip_r_knee_r_ankle"
+    ]
+
     @staticmethod
     def create_map(keypoints: Keypoints):
         return {
