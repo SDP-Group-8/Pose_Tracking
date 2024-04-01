@@ -90,6 +90,63 @@ def estimate_live_video_comparison():
     live = CaptureDevice(args.cam_num, True)
     ref = CaptureDevice(args.reference_video, False, (live.get_width(), live.get_height()))
     window = DoubleWindow(live, ref)
+    scorer = AngleScore()
+    
+    frame_count = 0
+    while ref.is_opened():
+        ref_frame_exists, reference_frame = ref.read()
+        live_frame_exists, live_frame = live.read()
+        
+        if live_frame_exists and ref_frame_exists:
+            live_timestamp = int(live.get_timestamp())
+            live_detections = media_pipe.process_frame(live_frame, timestamp = live_timestamp)
+
+            reference_detections = ref_pose_data[frame_count].keypoints
+            frame_count += 1
+
+            if live_detections and reference_detections:
+                reference_statistics = KeypointStatistics.from_keypoints(reference_detections)
+                live_statistics = KeypointStatistics.from_keypoints(live_detections)
+
+                score = scorer.compute_score(reference_statistics, live_statistics)
+
+                window.draw_and_show(
+                    reference_frame, 
+                    reference_detections.to_normalized_landmarks(),
+                    live_frame,
+                    live_statistics.keypoints.to_normalized_landmarks(), 
+                    score
+                )
+            
+            else:
+                window.show_image(reference_frame, live_frame, 0.0)
+
+        if window.should_close():
+            break
+    
+    window.destroy()
+    ref.close()
+    live.close()
+
+def estimate_with_new_scoring():
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument("reference_video")
+    parser.add_argument("cam_num")
+    args = parser.parse_args()
+
+    media_pipe = MediaPipe()
+    media_pipe.initialize("pose_landmarker_full.task")
+
+    media_pipe_video = MediaPipeVideo(args.reference_video, "pose_landmarker_full.task")
+    ref_pose_data = media_pipe_video.estimate_video()
+    ref_stats = [KeypointStatistics.from_keypoints(pose) for pose in ref_pose_data]
+
+    live_stats = []
+
+    live = CaptureDevice(args.cam_num, False)
+    ref = CaptureDevice(args.reference_video, False, (live.get_width(), live.get_height()))
+    window = DoubleWindow(live, ref)
     
     frame_count = 0
     while ref.is_opened():
@@ -101,26 +158,29 @@ def estimate_live_video_comparison():
             live_detections = media_pipe.process_frame(live_frame, timestamp = live_timestamp)
 
             reference_detections = ref_pose_data[frame_count]
-            frame_count += 1
-
+    
             if live_detections and reference_detections:
-                reference_statistics = KeypointStatistics.from_keypoints(reference_detections)
-                live_statistics = KeypointStatistics.from_keypoints(live_detections)
-                scaled_keypoints = KeypointScaling.scale_keypoints(reference_statistics, live_statistics)
+                live_stat = KeypointStatistics.from_keypoints(live_detections)
+                ref_stat = ref_stats[frame_count]
+                scaled_live_stats = KeypointScaling.scale_keypoints(ref_stat, live_stat)
+                live_stats.append(scaled_live_stats)
 
-                score = AngleScore.compute_score(reference_statistics, scaled_keypoints, isScaled=True)
-
+                
+                # scoreGradient = grade_gradients(ref_stats, live_stats, frame_count, seg_length=5)
+                score = 0
+                if detect_movement(ref_stats, live_stats, frame_count, seg_length=5):
+                    score = AngleScore.compute_score(ref_stat, scaled_live_stats, isScaled=True)
+                
                 window.draw_and_show(
                     reference_frame, 
                     reference_detections.to_normalized_landmarks(),
                     live_frame,
-                    scaled_keypoints.keypoints.to_normalized_landmarks(), 
+                    scaled_live_stats.keypoints.to_normalized_landmarks(), 
                     score
                 )
-            
+                frame_count += 1
             else:
                 window.show_image(reference_frame, live_frame, 0.0)
-
         if window.should_close():
             break
     
