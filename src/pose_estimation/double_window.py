@@ -90,6 +90,7 @@ def estimate_live_video_comparison():
     live = CaptureDevice(args.cam_num, True)
     ref = CaptureDevice(args.reference_video, False, (live.get_width(), live.get_height()))
     window = DoubleWindow(live, ref)
+    scorer = AngleScore()
     
     frame_count = 0
     while ref.is_opened():
@@ -107,7 +108,7 @@ def estimate_live_video_comparison():
                 reference_statistics = KeypointStatistics.from_keypoints(reference_detections)
                 live_statistics = KeypointStatistics.from_keypoints(live_detections)
 
-                score = AngleScore.compute_score(reference_statistics, scaled_keypoints)
+                score = scorer.compute_score(reference_statistics, live_statistics)
 
                 window.draw_and_show(
                     reference_frame, 
