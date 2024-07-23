@@ -9,6 +9,7 @@ import numpy as np
 class EuclideanScore(Score):
 
     # overriding abstract method 
+    @staticmethod
     def compute_score(first_keypoints: KeypointStatistics, second_keypoints: KeypointStatistics, 
                       weights: np.ndarray = None, isScaled : bool = False) -> float:
         """
@@ -31,6 +32,7 @@ class EuclideanScore(Score):
         
         return np.mean(dist_difference)
 
+    @staticmethod
     def compute_each_score(first_keypoints: KeypointStatistics, second_keypoints: KeypointStatistics,
                             weights: np.ndarray = None, isScaled : bool = False) -> list[float]:
           """
@@ -51,7 +53,7 @@ class EuclideanScore(Score):
                 dist_difference = dist_difference * weights
           return dist_difference
     
-
+    @staticmethod
     def scale_score(dist : float) -> float:
         """
         Returns the scaled score of the euclidean distance
