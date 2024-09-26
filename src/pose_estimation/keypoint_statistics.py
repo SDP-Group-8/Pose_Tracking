@@ -4,10 +4,13 @@ from pose_estimation.keypoints import Keypoints
 from mediapipe.tasks.python.components.containers.landmark import NormalizedLandmark
 from dataclasses import dataclass
 
+from pose_estimation.pre_processing.orientation import Orientation
+
 @dataclass
 class KeypointStatistics:
     keypoints: Keypoints
     property_map: dict[str]
+    orientation: Orientation
 
     r_shoulder_l_shoulder_l_elbow: float
     l_shoulder_l_elbow_l_wrist: float
@@ -62,6 +65,7 @@ class KeypointStatistics:
         return cls(
             keypoints,
             body_map,
+            Orientation.from_keypoints(keypoints),
             *(KeypointStatistics.calculate_angle(*parts) for parts in body_map.values())
         )
 
